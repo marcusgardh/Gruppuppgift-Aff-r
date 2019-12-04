@@ -112,4 +112,8 @@ function displayProducts() {
         price.innerHTML = products[i].price + " kr";
         product.appendChild(price);
     }
+
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
 }

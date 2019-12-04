@@ -6,19 +6,71 @@
         <title></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+
+    <body>
+        <header>
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">*SIDANS LOGGA HÄR*</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                          <ul class="navbar-nav">
+                            <li class="nav-item active">
+                              <a class="nav-link" href="#">Hem <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Om oss</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">FAQ</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Produkter
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Tavlor</a>
+                                <a class="dropdown-item" href="#">Affischer</a>
+                                <a class="dropdown-item" href="#">Ramar</a>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+        </header>
+        <div id="productcarousel" class="carousel slide carousel-fade mt-3" data-interval="2000" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#productcarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#productcarousel" data-slide-to="1"></li>
+                  </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/product_1.2.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="images/product_2.2.jpg" alt="Second slide">
+                      </div>  
+                </div>
+                <a class="carousel-control-prev" href="#productcarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Förra</span>
+                  </a>
+                  <a class="carousel-control-next" href="#productcarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Nästa</span>
+                  </a>
+              </div>
+        </div>
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!--<script src="https://kit.fontawesome.com/a6945a1720.js" crossorigin="anonymous" SameSite="None"></script>-->
-        <link rel="stylesheet" href="css/main.css" />
-        <script type="text/javascript" src="js/main.js"></script>
-    </head>
-
-    <body>
-        <h1>test</h1>
-        <p>hejhej hej hej</p>
-        <p>test</p>
-        <p>test 2</p>
     </body>
 
 </html>

@@ -1,11 +1,11 @@
 let products = [];
 
-window.onload = function() {
+$(document).ready(function() {
     createProducts();
 
     displayProducts();
 
-}
+})
 
 function Product() {
     this.id,
@@ -97,7 +97,10 @@ function displayProducts() {
         // imageDiv.className = "imagediv";
         let image = document.createElement("img");
         image.src = products[i].image;
-        image.className = "img-fluid"
+        image.className = "img-fluid";
+        image.addEventListener("click", function() {
+            window.location.href = "html/product.html?id=" + products[i].id;
+        });
         product.appendChild(imageDiv);
         imageDiv.appendChild(image);
 

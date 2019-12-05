@@ -42,16 +42,17 @@
                           </ul>
                         
                         </div>
-                        <div class="text-align-center justify-content-center">
+                        <div class="text-center">
                         <a class="navbar-brand text-align-center" href="#">*SIDANS LOGGA HÄR*</a>
                         </div>
-                        <div class="shoppingbag icon-2x">
-                                <i class="fas fa-shopping-bag icon-2x" href="#" aria-hidden="true">
+                        <div class="shoppingbag h-100">
+                                <i class="fas fa-shopping-bag icon-2x" href="#exampleModal" data-toggle="modal" aria-hidden="true">
                                         
                                 </i>
                             </div>
                       </nav>
         </header>
+
         <div id="productcarousel" class="carousel slide carousel-fade mt-3" data-interval="2000" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#productcarousel" data-slide-to="0" class="active"></li>
@@ -74,6 +75,26 @@
                 <span class="sr-only">Nästa</span>
             </a>
         </div>
+
+        <!-- Shoppingbag Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Din Varukorg</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark w-100">Till kassan</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
         <div class="container">
             <div id="productcontainer" class="row"></div>

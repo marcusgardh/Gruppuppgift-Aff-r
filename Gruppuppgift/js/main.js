@@ -114,7 +114,7 @@ function displayProducts() {
     }
 
     $( "#toCheckOut" ).click(function() {
-        
+        window.location = "../html/checkout.html";
       });
     
 }

@@ -118,7 +118,7 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         $("#cart").append($("<p>").html(cart[i].title));
-
+        $("#badge").html(cart.length);
     }
 
 }

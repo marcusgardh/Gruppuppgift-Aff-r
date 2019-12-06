@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     displayProducts();
 
+    displayCart();
 })
 
 function Product() {
@@ -87,9 +88,7 @@ function displayProducts() {
     // let container = document.getElementById("productcontainer");
 
     for (let i = 0; i < products.length; i++) {
-        console.log(products[i].title + " - " + products[i].id);
-        console.log(products[i].description);
-
+        
         let product = $("<div>").addClass("col-6 col-md-3 productdiv");
         container.append(product);
 
@@ -112,4 +111,14 @@ function displayProducts() {
         window.location.href = "html/checkout.html";
       });
     
+}
+
+function displayCart() {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    for (let i = 0; i < cart.length; i++) {
+        $("#cart").append($("<p>").html(cart[i].title));
+
+    }
+
 }

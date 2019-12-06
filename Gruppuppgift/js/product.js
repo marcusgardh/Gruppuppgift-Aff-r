@@ -1,10 +1,24 @@
 let products = [];
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 $(document).ready(function() {
     createProducts();
 
-    displayProducts();
+    productId = getParameterByName("id");
+    console.log(productId);
 
+    $( "#toCheckOut" ).click(function() {
+        window.location.replace("\checkout.html");
+      });
 })
 
 function Product() {
@@ -79,42 +93,4 @@ function createProducts() {
     product8.price = 1;
     product8.description = "Vacker poster med ett fotografiskt motiv av en rosa vägg med ett vackert hålmönster i marockansk stil. Det ihåliga mönstret skapar en vacker och hänförande dynamik.";
     products.push(product8);
-}
-
-function displayProducts() {
-
-    let container = document.getElementById("productcontainer");
-
-    for (let i = 0; i < products.length; i++) {
-        console.log(products[i].title + " - " + products[i].id);
-        console.log(products[i].description);
-
-        let product = document.createElement("div");
-        product.className = "col-6 col-md-3 productdiv";
-        container.appendChild(product);
-
-        let imageDiv = document.createElement("div");
-        // imageDiv.className = "imagediv";
-        let image = document.createElement("img");
-        image.src = products[i].image;
-        image.className = "img-fluid";
-        image.addEventListener("click", function() {
-            window.location.href = "html/product.html?id=" + products[i].id;
-        });
-        product.appendChild(imageDiv);
-        imageDiv.appendChild(image);
-
-        let title = document.createElement("p");
-        title.innerHTML = products[i].title;
-        product.appendChild(title);
-
-        let price = document.createElement("p");
-        price.innerHTML = products[i].price + " kr";
-        product.appendChild(price);
-    }
-
-    $( "#toCheckOut" ).click(function() {
-        window.location.href = "html/checkout.html";
-      });
-    
 }

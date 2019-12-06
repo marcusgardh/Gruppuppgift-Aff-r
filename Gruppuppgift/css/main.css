@@ -1,0 +1,38 @@
+
+.thumbnail-wrapper {
+    display: inline-flex;
+    justify-content: left;
+    max-height: 530px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+}
+.moreimages {
+    display: inline-flex;
+    justify-content: left space-evenly;
+    flex-direction: column;
+    
+
+  }
+.thumbnail{
+    height: 120px;
+    width: auto;
+    
+}
+.productdisplay{
+    height: auto;
+    width: 400px;
+    margin: 10px;
+}
+
+.product-description{
+    display: inline-flex;
+    justify-content: right;
+    width: 400px
+}
+.flex-column{
+    flex-direction: column;
+
+}

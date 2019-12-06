@@ -83,34 +83,29 @@ function createProducts() {
 
 function displayProducts() {
 
-    let container = document.getElementById("productcontainer");
+    let container = $("#productcontainer");
+    // let container = document.getElementById("productcontainer");
 
     for (let i = 0; i < products.length; i++) {
         console.log(products[i].title + " - " + products[i].id);
         console.log(products[i].description);
 
-        let product = document.createElement("div");
-        product.className = "col-6 col-md-3 productdiv";
-        container.appendChild(product);
+        let product = $("<div>").addClass("col-6 col-md-3 productdiv");
+        container.append(product);
 
-        let imageDiv = document.createElement("div");
-        // imageDiv.className = "imagediv";
-        let image = document.createElement("img");
-        image.src = products[i].image;
-        image.className = "img-fluid";
-        image.addEventListener("click", function() {
+        let imageDiv = $("<div>");
+        let image = $("<img>").addClass("img-fluid").attr("src", products[i].image).click(function() {
             window.location.href = "html/product.html?id=" + products[i].id;
         });
-        product.appendChild(imageDiv);
-        imageDiv.appendChild(image);
+        
+        product.append(imageDiv);
+        imageDiv.append(image);
 
-        let title = document.createElement("p");
-        title.innerHTML = products[i].title;
-        product.appendChild(title);
+        let title = $("<p>").html(products[i].title);
+        product.append(title);
 
-        let price = document.createElement("p");
-        price.innerHTML = products[i].price + " kr";
-        product.appendChild(price);
+        let price = $("<p>").html(products[i].price + " kr");
+        product.append(price);
     }
 
     $( "#toCheckOut" ).click(function() {

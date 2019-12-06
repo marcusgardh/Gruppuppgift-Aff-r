@@ -13,12 +13,11 @@ function getParameterByName(name, url) {
 $(document).ready(function() {
     createProducts();
 
-    productId = getParameterByName("id");
+    let productId = getParameterByName("id");
     console.log(productId);
 
-    $( "#toCheckOut" ).click(function() {
-        window.location.replace("\checkout.html");
-      });
+    displayProduct(productId);
+
 })
 
 function Product() {
@@ -93,4 +92,12 @@ function createProducts() {
     product8.price = 1;
     product8.description = "Vacker poster med ett fotografiskt motiv av en rosa vägg med ett vackert hålmönster i marockansk stil. Det ihåliga mönstret skapar en vacker och hänförande dynamik.";
     products.push(product8);
+}
+
+function displayProduct(x) {
+    // document.write(products[x - 1].title);
+
+    $( "#toCheckOut" ).click(function() {
+        window.location.href = "\checkout.html";
+      });
 }

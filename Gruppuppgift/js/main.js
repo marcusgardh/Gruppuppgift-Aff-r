@@ -93,7 +93,7 @@ function displayProducts() {
         container.append(product);
 
         let imageDiv = $("<div>");
-        let image = $("<img>").addClass("img-fluid").attr("src", products[i].image).click(function() {
+        let image = $("<img>").addClass("img-fluid productimage").attr("src", products[i].image).click(function() {
             window.location.href = "html/product.html?id=" + products[i].id;
         });
         

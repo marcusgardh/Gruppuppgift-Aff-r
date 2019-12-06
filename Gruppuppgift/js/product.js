@@ -15,6 +15,10 @@ $(document).ready(function() {
 
     productId = getParameterByName("id");
     console.log(productId);
+
+    $( "#toCheckOut" ).click(function() {
+        window.location.replace("\checkout.html");
+      });
 })
 
 function Product() {

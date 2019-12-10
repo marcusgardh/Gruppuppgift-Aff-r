@@ -115,7 +115,10 @@ function createProducts() {
 }
 
 function displayProduct(x) {
+
     let arrayId = x - 1;
+
+    console.log(arrayId);
 
     $(document).attr("title", products[arrayId].title);
 
@@ -183,7 +186,7 @@ function displayCart() {
     for (let i = 0; i < cart.length; i++) {
         cartQuantity += cart[i].quantity;
     }
-    console.log(cartQuantity);
+    // console.log(cartQuantity);
 
     $("#cart").empty();
     $("#badge").empty();
@@ -191,7 +194,7 @@ function displayCart() {
     for (let i = 0; i < cart.length; i++) {
         $("#cart").append($("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr"));
         $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
-            removeFromCart(i);
+            removeFromCart(cart[i].id);
         }));
 
         $("#badge").html(cartQuantity);
@@ -202,8 +205,10 @@ function displayCart() {
 function removeFromCart(x) {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     
+    console.log(x);
+
     for (let i = 0; i < cart.length; i++) {
-        if (cart[i].id === x + 1) {
+        if (cart[i].id === x ) {
             cart[i].quantity--;
 
             if (cart[i].quantity === 0) {

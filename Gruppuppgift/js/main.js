@@ -116,9 +116,21 @@ function displayProducts() {
 function displayCart() {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
+    $("#cart").empty();
+
     for (let i = 0; i < cart.length; i++) {
         $("#cart").append($("<p>").html(cart[i].title));
+        $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
+            removeFromCart(i);
+        }));
         $("#badge").html(cart.length);
     }
 
+}
+
+function removeFromCart(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.splice(x, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
 }

@@ -18,6 +18,8 @@ $(document).ready(function() {
 
     displayProduct(productId);
 
+    displayCart();
+
 })
 
 function Product() {
@@ -32,9 +34,9 @@ function Product() {
 function CartProduct() {
     this.title,
     this.image,
-    this.price/*,
+    this.price,
     this.id,
-    this.quantity*/
+    this.quantity
 
 }
 
@@ -137,12 +139,89 @@ function displayProduct(x) {
 }
 
 function addToCart(x) {
-    let cartItem = new CartProduct();
-    cartItem.title = products[x].title;
-    cartItem.image = products[x].image;
-    cartItem.price = products[x].price;
 
-    cart.push(cartItem);
+    if (cart.length) {
+
+        for (let i = 0; i < cart.length; i++) {
+            if (jQuery.inArray( products[x].id, cart)) {
+                cart[i].quantity++;
+            }
+            else {
+                let cartItem = new CartProduct();
+                cartItem.title = products[x].title;
+                cartItem.image = products[x].image;
+                cartItem.price = products[x].price;
+                cartItem.id = products[x].id;
+                cartItem.quantity = 1;
+                cart.push(cartItem); 
+            }
+        }
+    }
+    else {
+        let cartItem = new CartProduct();
+        cartItem.title = products[x].title;
+        cartItem.image = products[x].image;
+        cartItem.price = products[x].price;
+        cartItem.id = products[x].id;
+        cartItem.quantity = 1;
+        cart.push(cartItem); 
+    }
+        
+    // if (!cart.length) {
+    //     let cartItem = new CartProduct();
+    //     cartItem.title = products[x].title;
+    //     cartItem.image = products[x].image;
+    //     cartItem.price = products[x].price;
+    //     cartItem.id = products[x].id;
+    //     cartItem.quantity = 1;
+    //     cart.push(cartItem); 
+    // }
+
+    // else {
+
+    //     for (let i = 0; i < cart.length; i++) {
+    //         if (cart[i].id == products[x].id) {
+    //             cart[i].quantity++;
+    //         }
+    
+            
+
+    //     }
+
+    //     let cartItem = new CartProduct();
+    //     cartItem.title = products[x].title;
+    //     cartItem.image = products[x].image;
+    //     cartItem.price = products[x].price;
+    //     cartItem.id = products[x].id;
+    //     cartItem.quantity = 1;
+    //     cart.push(cartItem);
+        
+    // }
+    
 
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+}
+
+function displayCart() {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    $("#cart").empty();
+
+    for (let i = 0; i < cart.length; i++) {
+        $("#cart").append($("<p>").html(cart[i].title));
+        $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
+            removeFromCart(i);
+        }));
+        $("#badge").html(cart[i].quantity);
+    }
+
+}
+
+function removeFromCart(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.splice(x, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
 }

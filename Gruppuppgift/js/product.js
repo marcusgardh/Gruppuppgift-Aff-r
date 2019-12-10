@@ -1,3 +1,9 @@
+$(".thumbnail").click(function() {
+    imgsrc = $(this).attr('src');
+    $(".displayimage").attr("src",imgsrc);
+	
+});
+
 let products = [];
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
@@ -215,3 +221,5 @@ function removeFromCart(x) {
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }
+
+

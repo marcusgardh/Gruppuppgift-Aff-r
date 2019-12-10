@@ -141,63 +141,35 @@ function displayProduct(x) {
 function addToCart(x) {
 
     if (cart.length) {
+        let found = false;
 
         for (let i = 0; i < cart.length; i++) {
-            if (jQuery.inArray( products[x].id, cart)) {
+            if (cart[i].id === x + 1) {
                 cart[i].quantity++;
-            }
-            else {
-                let cartItem = new CartProduct();
-                cartItem.title = products[x].title;
-                cartItem.image = products[x].image;
-                cartItem.price = products[x].price;
-                cartItem.id = products[x].id;
-                cartItem.quantity = 1;
-                cart.push(cartItem); 
+
+                found = true;
             }
         }
+        if (found == false) {
+            let cartItem = new CartProduct();
+            cartItem.title = products[x].title;
+            cartItem.image = products[x].image;
+            cartItem.price = products[x].price;
+            cartItem.id = products[x].id;
+            cartItem.quantity = 1;
+            cart.push(cartItem); 
+        }    
     }
+
     else {
         let cartItem = new CartProduct();
-        cartItem.title = products[x].title;
-        cartItem.image = products[x].image;
-        cartItem.price = products[x].price;
-        cartItem.id = products[x].id;
-        cartItem.quantity = 1;
-        cart.push(cartItem); 
+            cartItem.title = products[x].title;
+            cartItem.image = products[x].image;
+            cartItem.price = products[x].price;
+            cartItem.id = products[x].id;
+            cartItem.quantity = 1;
+            cart.push(cartItem); 
     }
-        
-    // if (!cart.length) {
-    //     let cartItem = new CartProduct();
-    //     cartItem.title = products[x].title;
-    //     cartItem.image = products[x].image;
-    //     cartItem.price = products[x].price;
-    //     cartItem.id = products[x].id;
-    //     cartItem.quantity = 1;
-    //     cart.push(cartItem); 
-    // }
-
-    // else {
-
-    //     for (let i = 0; i < cart.length; i++) {
-    //         if (cart[i].id == products[x].id) {
-    //             cart[i].quantity++;
-    //         }
-    
-            
-
-    //     }
-
-    //     let cartItem = new CartProduct();
-    //     cartItem.title = products[x].title;
-    //     cartItem.image = products[x].image;
-    //     cartItem.price = products[x].price;
-    //     cartItem.id = products[x].id;
-    //     cartItem.quantity = 1;
-    //     cart.push(cartItem);
-        
-    // }
-    
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -206,22 +178,40 @@ function addToCart(x) {
 
 function displayCart() {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-    $("#cart").empty();
+    let cartQuantity = 0;
 
     for (let i = 0; i < cart.length; i++) {
-        $("#cart").append($("<p>").html(cart[i].title));
+        cartQuantity += cart[i].quantity;
+    }
+    console.log(cartQuantity);
+
+    $("#cart").empty();
+    $("#badge").empty();
+
+    for (let i = 0; i < cart.length; i++) {
+        $("#cart").append($("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr"));
         $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
             removeFromCart(i);
         }));
-        $("#badge").html(cart[i].quantity);
+
+        $("#badge").html(cartQuantity);
     }
 
 }
 
 function removeFromCart(x) {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    cart.splice(x, 1);
+    
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === x + 1) {
+            cart[i].quantity--;
+
+            if (cart[i].quantity === 0) {
+                cart.splice(i, 1);
+            }
+        }
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }

@@ -115,22 +115,40 @@ function displayProducts() {
 
 function displayCart() {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-    $("#cart").empty();
+    let cartQuantity = 0;
 
     for (let i = 0; i < cart.length; i++) {
-        $("#cart").append($("<p>").html(cart[i].title));
+        cartQuantity += cart[i].quantity;
+    }
+    console.log(cartQuantity);
+
+    $("#cart").empty();
+    $("#badge").empty();
+
+    for (let i = 0; i < cart.length; i++) {
+        $("#cart").append($("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr"));
         $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
             removeFromCart(i);
         }));
-        $("#badge").html(cart.length);
+
+        $("#badge").html(cartQuantity);
     }
 
 }
 
 function removeFromCart(x) {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    cart.splice(x, 1);
+    
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === x + 1) {
+            cart[i].quantity--;
+
+            if (cart[i].quantity === 0) {
+                cart.splice(i, 1);
+            }
+        }
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }

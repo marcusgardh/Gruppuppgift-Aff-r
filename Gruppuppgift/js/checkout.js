@@ -17,3 +17,20 @@
       });
     }, false);
   })();
+
+window.onload = function() {
+  calculatePrice();
+    
+}
+  
+    function calculatePrice() {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      
+      let x = 0;
+      
+      for (let i = 0; i < cart.length; i++) {
+        x += cart[i].price * cart[i].quantity;
+        
+        console.log(x);
+      }
+    }

@@ -17,3 +17,17 @@
       });
     }, false);
   })();
+
+  $(document).ready(function() {
+
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    for (let i = 0; i < cart.length; i++) {
+        $("#checkOutBag").append($("<h6>").html(cart[i].title));
+        $("#checkOutBag").append($("<p>").html(cart[i].price + " kr"));
+        $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
+            removeFromCart(i);
+        }));
+      
+    }
+
+})

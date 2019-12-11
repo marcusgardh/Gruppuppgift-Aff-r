@@ -20,14 +20,39 @@
 
   $(document).ready(function() {
 
+    displayCheckOut();
+
+    
+})
+
+function displayCheckOut(){
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    $("#checkOutBag").empty();
     for (let i = 0; i < cart.length; i++) {
-        $("#checkOutBag").append($("<h6>").html(cart[i].title));
-        $("#checkOutBag").append($("<p>").html(cart[i].price + " kr"));
+        $("#checkOutBag").append($("<h6>").addClass("py-2").html(cart[i].title));
+        $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
+        $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
+        let imageDiv = $("<div>").classList("imgDiv");
+        let image = $("<img>").addClass("img-fluid").attr("src", cart[i].image);
         $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
-            removeFromCart(i);
+            removeFromCart(cart[i].id);
         }));
       
     }
+}
+function removeFromCart(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === x) {
+            cart[i].quantity--;
 
-})
+            if (cart[i].quantity === 0) {
+                cart.splice(i, 1);
+            }
+        }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCheckOut();
+}

@@ -40,15 +40,14 @@ function displayCheckOut(){
   for (let i = 0; i < cart.length; i++) {
     $("#checkOutBag").append($("<div>").append($("<img>").addClass("img-fluid").attr("src", cart[i].image)));
     $("#checkOutBag").append($("<h6>").addClass("py-2").html(cart[i].title));
-    $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
-    $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
-    $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
+    $("#checkOutBag").append($("<i>").addClass("fas fa-minus").click(function() {
       removeFromCart(cart[i].id); 
     }));
+    $("#checkOutBag").append($("<span>").addClass("px-2").html(cart[i].quantity));
     $("#checkOutBag").append($("<i>").addClass("fas fa-plus").click(function() {
       addToCart(cart[i].id);
-
     }));
+    $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
     
     calculateTotalPrice();
 

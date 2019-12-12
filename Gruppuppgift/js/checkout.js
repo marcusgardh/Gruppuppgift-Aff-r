@@ -30,15 +30,18 @@ function displayCheckOut(){
     $("#checkOutBag").empty();
     for (let i = 0; i < cart.length; i++) {
         $("#checkOutBag").append($("<h6>").addClass("py-2").html(cart[i].title));
-        $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
+        $("#checkOutBag").append($("<p>").html("x " + cart[i].quantity));
         $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
-        let imageDiv = $("<div>").classList("imgDiv");
+        let imageDiv = $("<div>").addClass("imgDiv");
         let image = $("<img>").addClass("img-fluid").attr("src", cart[i].image);
         $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
             removeFromCart(cart[i].id);
         }));
-      
+
+      image.append(imageDiv);
     }
+
+    
 }
 function removeFromCart(x) {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");

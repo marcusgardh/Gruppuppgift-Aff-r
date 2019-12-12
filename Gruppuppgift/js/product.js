@@ -203,10 +203,10 @@ function displayCart() {
         $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
             removeFromCart(cart[i].id);
         }));
-        $("#cart").append($("<i>").addClass("far fa-plus").click(function() {
-            addToCart(cart[i].id - 1);
-        }));
-
+        $("#cart").append($("<i>").addClass("fas fa-plus").click(function() {
+            addToCart(cart[i].id -1);
+      
+          }));
         $("#badge").html(cartQuantity);
     }
 

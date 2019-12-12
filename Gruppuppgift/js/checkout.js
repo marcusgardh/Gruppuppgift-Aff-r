@@ -29,30 +29,43 @@ function displayCheckOut(){
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     $("#checkOutBag").empty();
     for (let i = 0; i < cart.length; i++) {
-        $("#checkOutBag").append($("<h6>").addClass("py-2").html(cart[i].title));
-        $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
-        $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
-        let imageDiv = $("<div>").classList("imgDiv");
-        let image = $("<img>").addClass("img-fluid").attr("src", cart[i].image);
-        $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
-            removeFromCart(cart[i].id);
-        }));
+      $("#checkOutBag").append($("<div>").append($("<img>").addClass("img-fluid").attr("src", cart[i].image)));
+      $("#checkOutBag").append($("<h6>").addClass("py-2").html(cart[i].title));
+      $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
+      $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
+      $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
+        removeFromCart(cart[i].id);
+      }));
       
+      calculateTotalPrice();
+
     }
 }
 function removeFromCart(x) {
-    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     
-    for (let i = 0; i < cart.length; i++) {
-        if (cart[i].id === x) {
-            cart[i].quantity--;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id === x) {
+      cart[i].quantity--;
 
-            if (cart[i].quantity === 0) {
-                cart.splice(i, 1);
-            }
-        }
+      if (cart[i].quantity === 0) {
+        cart.splice(i, 1);
+      }
     }
+  }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    displayCheckOut();
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCheckOut();
+}
+
+function calculateTotalPrice() {
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  let totalPrice = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    totalPrice += cart[i].price * cart[i].quantity;
+  }
+
+  console.log(totalPrice);
+
 }

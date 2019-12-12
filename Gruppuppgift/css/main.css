@@ -6,6 +6,10 @@
     box-shadow: #333 3px 3px 0px 0px;
 }
 
+#shoppingbag {
+    cursor: pointer;
+}
+
 .thumbnail{
     
     width: 145px;

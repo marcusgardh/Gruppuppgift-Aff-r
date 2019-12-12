@@ -148,12 +148,13 @@ function displayProduct(x) {
 }
 
 function addToCart(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
     if (cart.length) {
         let found = false;
 
         for (let i = 0; i < cart.length; i++) {
-            if (cart[i].id === x + 1) {
+            if (cart[i].id === x + 1    ) {
                 cart[i].quantity++;
 
                 found = true;

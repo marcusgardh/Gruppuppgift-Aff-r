@@ -126,17 +126,34 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         $("#cart").append($("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr"));
-        $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
+        $("#cart").append($("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         }));
-        $("#cart").append($("<i>").addClass("far fa-plus").click(function() {
-            addToCart(cart[i].id - 1);
+        $("#cart").append($("<span>").html(cart[i].quantity));
+        $("#cart").append($("<i>").addClass("fas fa-plus").click(function() {
+            addToCart(cart[i].id);
         }));
 
         $("#badge").html(cartQuantity);
     }
 
 }
+
+function addToCart(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === x ) {
+                cart[i].quantity++;
+  
+                
+            }
+        }
+        
+    localStorage.setItem("cart", JSON.stringify(cart));
+  
+    displayCart();
+  }
 
 function removeFromCart(x) {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");

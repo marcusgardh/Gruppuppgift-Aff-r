@@ -199,14 +199,19 @@ function displayCart() {
     $("#badge").empty();
 
     for (let i = 0; i < cart.length; i++) {
-        $("#cart").append($("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr"));
-        $("#cart").append($("<i>").addClass("far fa-trash-alt").click(function() {
+        let img = $("<img>").attr("src", cart[i].image).addClass("img-fluid w-25");
+        let text = $("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr");
+        let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
-        }));
-        $("#cart").append($("<i>").addClass("fas fa-plus").click(function() {
+        });
+        let quantity = $("<span>").html(cart[i].quantity);
+        let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id -1);
       
-          }));
+          });
+
+          $("#cart").append(($("<div>").addClass("d-flex").append(img).append(text).append(minus).append(quantity).append(plus)));
+
         $("#badge").html(cartQuantity);
     }
 

@@ -6,12 +6,27 @@
     box-shadow: #333 3px 3px 0px 0px;
 }
 
+.thumbnail:hover {
+    cursor: pointer;
+
+    transition: 0.5s;
+
+    box-shadow: #333 3px 3px 0px 0px;
+}
+
 .thumbnail{
     
     width: 145px;
 }
-.productdisplay{
-   
-    width: 400px;
+.displayimage{
+    max-width:100%;
+    width: 500px;
+    height: auto;
     
+}
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
 }

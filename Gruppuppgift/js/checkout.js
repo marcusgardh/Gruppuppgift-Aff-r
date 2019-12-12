@@ -18,6 +18,15 @@
   }, false);
 })();
 
+function CartProduct() {
+  this.title,
+  this.image,
+  this.price,
+  this.id,
+  this.quantity
+
+}
+
 $(document).ready(function() {
 
   displayCheckOut();
@@ -34,7 +43,11 @@ function displayCheckOut(){
     $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
     $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
     $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
-      removeFromCart(cart[i].id);
+      removeFromCart(cart[i].id); 
+    }));
+    $("#checkOutBag").append($("<i>").addClass("fas fa-plus").click(function() {
+      addToCart(cart[i].id);
+
     }));
     
     calculateTotalPrice();
@@ -56,6 +69,26 @@ for (let i = 0; i < cart.length; i++) {
 
 localStorage.setItem("cart", JSON.stringify(cart));
 displayCheckOut();
+}
+
+function addToCart(x) {
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      for (let i = 0; i < cart.length; i++) {
+          if (cart[i].id === x ) {
+              cart[i].quantity++;
+
+              
+          }
+      }
+      
+  
+
+
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  displayCheckOut();
 }
 
 function calculateTotalPrice() {

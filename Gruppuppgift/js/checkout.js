@@ -37,23 +37,29 @@ $(document).ready(function() {
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   $("#checkOutBag").empty();
+
   for (let i = 0; i < cart.length; i++) {
-    $("#checkOutBag").append($("<div>").append($("<img>").addClass("img-fluid").attr("src", cart[i].image)));
-    $("#checkOutBag").append($("<h6>").addClass("py-2").html(cart[i].title));
-    $("#checkOutBag").append($("<p>").html(" x " + cart[i].quantity));
-    $("#checkOutBag").append($("<p>").html(cart[i].price * cart[i].quantity + " kr"));
-    $("#checkOutBag").append($("<i>").addClass("far fa-trash-alt").click(function() {
+  
+    let img = $("<img>").addClass("img-fluid").attr("src", cart[i].image);
+    let text = $("<h6>").addClass("py-2").html(cart[i].title);
+    let minus = $("<i>").addClass("fas fa-minus").click(function() {
       removeFromCart(cart[i].id); 
-    }));
-    $("#checkOutBag").append($("<i>").addClass("fas fa-plus").click(function() {
+    });
+    let quantity = $("<span>").addClass("px-2").html(cart[i].quantity);
+    let plus = $("<i>").addClass("fas fa-plus").click(function() {
       addToCart(cart[i].id);
 
-    }));
+    });
+    let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
     
+    $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
+
     calculateTotalPrice();
 
   }
+
 }
+
 function removeFromCart(x) {
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   
@@ -82,23 +88,27 @@ function addToCart(x) {
           }
       }
       
-  
-
-
-
   localStorage.setItem("cart", JSON.stringify(cart));
 
   displayCheckOut();
 }
 
 function calculateTotalPrice() {
-let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-let totalPrice = 0;
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  let totalPrice = 0;
 
-for (let i = 0; i < cart.length; i++) {
-  totalPrice += cart[i].price * cart[i].quantity;
-}
+  for (let i = 0; i < cart.length; i++) {
+    totalPrice += cart[i].price * cart[i].quantity;
+  }
 
-console.log(totalPrice);
+  if (totalPrice > 0) {
+    
+    $("#totalprice").html("<b>Totalt: </b>" + totalPrice + " kr");
+  }
+
+  else {
+    $("#totalprice").html("<b>Totalt: </b> 0 kr");
+  }
+  console.log(totalPrice);
 
 }

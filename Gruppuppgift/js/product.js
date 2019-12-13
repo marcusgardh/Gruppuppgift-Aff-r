@@ -193,27 +193,29 @@ function displayCart() {
     for (let i = 0; i < cart.length; i++) {
         cartQuantity += cart[i].quantity;
     }
-    // console.log(cartQuantity);
 
     $("#cart").empty();
     $("#badge").empty();
 
     for (let i = 0; i < cart.length; i++) {
-        let img = $("<img>").attr("src", cart[i].image).addClass("img-fluid w-25");
-        let text = $("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr");
+        let image = $("<img>").addClass("img-fluid w-25").attr("src", cart[i].image);
+        let title = $("<p>").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
-            removeFromCart(cart[i].id);
+            removeFromCart(cart[i].id - 1);
         });
         let quantity = $("<span>").html(cart[i].quantity);
         let plus = $("<i>").addClass("fas fa-plus").click(function() {
-            addToCart(cart[i].id -1);
-      
-          });
-
-          $("#cart").append(($("<div>").addClass("d-flex").append(img).append(text).append(minus).append(quantity).append(plus)));
+            addToCart(cart[i].id - 1);
+        });
+        let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+        
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }
+
+    calculateTotalPrice();
 
 }
 

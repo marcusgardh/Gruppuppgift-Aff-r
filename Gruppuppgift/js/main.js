@@ -125,17 +125,24 @@ function displayCart() {
     $("#badge").empty();
 
     for (let i = 0; i < cart.length; i++) {
-        $("#cart").append($("<p>").html(cart[i].title + " x " + cart[i].quantity + " | " + cart[i].price * cart[i].quantity + " kr"));
-        $("#cart").append($("<i>").addClass("fas fa-minus").click(function() {
+        let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
+        let title = $("<p>").html(cart[i].title);
+        let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
-        }));
-        $("#cart").append($("<span>").html(cart[i].quantity));
-        $("#cart").append($("<i>").addClass("fas fa-plus").click(function() {
+        });
+        let quantity = $("<span>").html(cart[i].quantity);
+        let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id);
-        }));
+        });
+        let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+        
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }
+
+    calculateTotalPrice();
 
 }
 
@@ -171,3 +178,23 @@ function removeFromCart(x) {
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }
+
+function calculateTotalPrice() {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    let totalPrice = 0;
+  
+    for (let i = 0; i < cart.length; i++) {
+      totalPrice += cart[i].price * cart[i].quantity;
+    }
+  
+    if (totalPrice > 0) {
+      
+      $("#cart").append($("<span>").html("<b>Totalt: </b>" + totalPrice + " kr"));
+    }
+  
+    else {
+      $("#cart").append($("<span>").html("<b>Totalt: </b> 0 kr"));
+    }
+    console.log(totalPrice);
+  
+  }

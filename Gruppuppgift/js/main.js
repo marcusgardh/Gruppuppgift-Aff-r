@@ -127,7 +127,7 @@ function displayCart() {
     for (let i = 0; i < cart.length; i++) {
         
         $("#cart").append($("<h6>").html(cart[i].title));
-        $("#cart").append($("<p>").html(cart[i].price + " kr"));
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         $("#cart").append($("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         }));

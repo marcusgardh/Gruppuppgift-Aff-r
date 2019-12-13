@@ -100,7 +100,7 @@ function displayProducts() {
         product.append(imageDiv);
         imageDiv.append(image);
 
-        let title = $("<p>").html(products[i].title);
+        let title = $("<h6>").html(products[i].title);
         product.append(title);
 
         let price = $("<p>").html(products[i].price + " kr");
@@ -126,7 +126,7 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
-        let title = $("<h6>").html(cart[i].title);
+        let title = $("<p>").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         });

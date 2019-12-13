@@ -29,7 +29,7 @@ function createProducts() {
     product2.id = 2;
     product2.title = "Deep Teal Stone";
     product2.image = "images/product_2.jpeg";
-    product2.price = 179;
+    product2.price = 199;
     product2.description = "Grafiskt och elegant print med motiv av ett grönblått mönster och eleganta guldiga linjer. Postern passar lika bra för sig själv som i kombination med andra posters i en trendig tavelvägg.";
     products.push(product2);
 
@@ -89,7 +89,7 @@ function displayProducts() {
 
     for (let i = 0; i < products.length; i++) {
         
-        let product = $("<div>").addClass("col-6 col-md-3 productdiv");
+        let product = $("<div>").addClass("col-6 col-md-3 productdiv text-center");
         container.append(product);
 
         let imageDiv = $("<div>");
@@ -100,7 +100,7 @@ function displayProducts() {
         product.append(imageDiv);
         imageDiv.append(image);
 
-        let title = $("<p>").html(products[i].title);
+        let title = $("<h6>").html(products[i].title);
         product.append(title);
 
         let price = $("<p>").html(products[i].price + " kr");

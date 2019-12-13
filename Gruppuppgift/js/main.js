@@ -29,7 +29,7 @@ function createProducts() {
     product2.id = 2;
     product2.title = "Deep Teal Stone";
     product2.image = "images/product_2.jpeg";
-    product2.price = 179;
+    product2.price = 199;
     product2.description = "Grafiskt och elegant print med motiv av ett grönblått mönster och eleganta guldiga linjer. Postern passar lika bra för sig själv som i kombination med andra posters i en trendig tavelvägg.";
     products.push(product2);
 
@@ -100,7 +100,7 @@ function displayProducts() {
         product.append(imageDiv);
         imageDiv.append(image);
 
-        let title = $("<h5>").addClass("pt-1").html(products[i].title);
+        let title = $("<p>").html(products[i].title);
         product.append(title);
 
         let price = $("<p>").html(products[i].price + " kr");
@@ -125,16 +125,19 @@ function displayCart() {
     $("#badge").empty();
 
     for (let i = 0; i < cart.length; i++) {
-        
-        $("#cart").append($("<h6>").html(cart[i].title));
-        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
-        $("#cart").append($("<i>").addClass("fas fa-minus").click(function() {
+        let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
+        let title = $("<h6>").html(cart[i].title);
+        let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
-        }));
-        $("#cart").append($("<span>").addClass("px-2").html (cart[i].quantity));
-        $("#cart").append($("<i>").addClass("fas fa-plus").click(function() {
-            addToCart(cart[i].id - 1);
-        }));
+        });
+        let quantity = $("<span>").html(cart[i].quantity);
+        let plus = $("<i>").addClass("fas fa-plus").click(function() {
+            addToCart(cart[i].id);
+        });
+        let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+        
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }

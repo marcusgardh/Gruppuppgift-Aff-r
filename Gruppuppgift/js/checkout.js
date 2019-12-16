@@ -31,15 +31,6 @@ $(document).ready(function() {
 
   displayCheckOut();
 
-  $("input").on( "click", function() {
-    calculateTotalPrice($( "input:checked" ).val());
-  });
-
-  $( ".theShipping" ).on( "click", function() {
-    $( "#allprice" ).html( $( "input:checked" ).val() + " kr");
-})
-
-
 
 let $radios = $('input[name="theshipping"]');
  $radios.change(function() {
@@ -50,6 +41,7 @@ let $radios = $('input[name="theshipping"]');
   calculateTotalPrice($checked.val());
 });
 
+});
 
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -121,18 +113,14 @@ function addToCart(x) {
 function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let totalPrice = 0;
-  let shippingPrice = 0;
-  shippingPrice = shippingPrice += shipping;
 
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
-  } 
-
-  console.log(shippingPrice);
+  }
 
   if (totalPrice > 0) {
-    totalPrice = totalPrice += shippingPrice;
-    $("#totalprice").html("<b>Totalt: </b>" + totalPrice + " kr");
+    
+    $("#totalprice").html("<b>Pris: </b>" + totalPrice + " kr");
   }
 
   else {
@@ -146,12 +134,3 @@ let allPrice = parseInt(totalPrice) + parseInt(shipping);
 
   $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
   };
-
-  $("#formSubmit").click(function(){
-    $("#pay-ship").toggle();
-  });
-
-function orderComplete() {
-  $("#orderarea").empty();
-  $("body").append($("<h3>").html("Tack för din beställning"));
-}

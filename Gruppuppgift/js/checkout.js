@@ -12,6 +12,12 @@
           event.preventDefault();
           event.stopPropagation();
         }
+
+        if(form.checkValidity() === true) {
+          let firstName = $("#inputFirstName").val();
+          let mail = $("#inputEmail").val();
+          orderComplete(firstName, mail);
+        }
         form.classList.add('was-validated');
       }, false);
     });
@@ -31,6 +37,9 @@ $(document).ready(function() {
 
   displayCheckOut();
 
+  // $("#order").click(function() {
+  //   alert("Hej");
+  // });
 
   let $radios = $('input[name="theshipping"]');
   $radios.change(function() {
@@ -131,4 +140,13 @@ function calculateTotalPrice(shipping) {
   let allPrice = parseInt(totalPrice) + parseInt(shipping);
 
   $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
+}
+
+function orderComplete(firstName, mail) {
+  $("#maincontent").empty();
+
+  let orderNumber = Math.floor(Math.random() * 1001);
+
+  $("#maincontent").append($("<h3>").addClass("mt-5").html("Tack för din order " + firstName + ", ditt ordernummer är #" + orderNumber));
+  $("#maincontent").append($("<h3>").html("Ditt kvitto har skickats till " + mail));
 }

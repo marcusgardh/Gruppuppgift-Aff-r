@@ -31,17 +31,23 @@ $(document).ready(function() {
 
   displayCheckOut();
 
-  $( ".theShipping" ).on( "click", function() {
-    $( "#allprice" ).html( $( "input:checked" ).val() + " kr");
-})
 
-})
+let $radios = $('input[name="theshipping"]');
+ $radios.change(function() {
+  let $checked = $radios.filter(function() {
+    return $(this).prop('checked');
+  });
+  // Output the value of the checked radio
+  calculateTotalPrice($checked.val());
+});
 
-console
+});
 
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   $("#checkOutBag").empty();
+
+  
 
   for (let i = 0; i < cart.length; i++) {
   
@@ -59,8 +65,14 @@ function displayCheckOut(){
     
     $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
 
-    calculateTotalPrice();
-
+    let $radios = $('input[name="theshipping"]');
+ $radios.change(function() {
+  let $checked = $radios.filter(function() {
+    return $(this).prop('checked');
+  });
+  // Output the value of the checked radio
+  calculateTotalPrice($checked.val());
+});
   }
 
 }
@@ -101,7 +113,6 @@ function addToCart(x) {
 function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let totalPrice = 0;
-  let shippingprice = 0 || shipping;
 
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
@@ -113,9 +124,15 @@ function calculateTotalPrice(shipping) {
   }
 
   else {
-    $("#totalprice").html("<b>Pris: </b> 0 kr");
+    $("#totalprice").html("<b>Totalt: </b> 0 kr");
   }
   console.log(totalPrice);
 
-}
+  $("#shippingprice").html("<b>Frakt: </b>" + shipping + " kr");
 
+let allPrice = parseInt(totalPrice) + parseInt(shipping);
+
+  $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
+  };
+
+ 

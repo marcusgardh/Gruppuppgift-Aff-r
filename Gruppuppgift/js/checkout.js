@@ -31,12 +31,8 @@ $(document).ready(function() {
 
   displayCheckOut();
 
-  $("#standard").click(function() {
-    calculateTotalPrice(0);
-  });
-
-  $("#express").click(function() {
-    calculateTotalPrice(29);
+  $("input").on( "click", function() {
+    calculateTotalPrice($( "input:checked" ).val());
   });
   
 })
@@ -104,19 +100,16 @@ function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let totalPrice = 0;
   let shippingPrice = 0;
-
+  shippingPrice = shippingPrice += shipping;
 
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
-  }
-
-  if (shipping) {
-    shippingPrice = shippingPrice += shipping;
-  }
+  } 
 
   console.log(shippingPrice);
 
   if (totalPrice > 0) {
+    totalPrice = totalPrice += shippingPrice;
     $("#totalprice").html("<b>Totalt: </b>" + totalPrice + " kr");
   }
 
@@ -129,3 +122,10 @@ function calculateTotalPrice(shipping) {
   $("#formSubmit").click(function(){
     $("#pay-ship").toggle();
   });
+
+function orderComplete() {
+  $("#orderarea").empty();
+  $("body").append($("<h3>").html("Tack för din beställning"));
+}
+
+let allPrice = parseInt(totalPrice) + parseInt(shipping);

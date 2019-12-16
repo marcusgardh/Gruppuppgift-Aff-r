@@ -43,14 +43,15 @@
         </div>
         <a class="navbar-brand text-align-center" href="../index.html">*SIDANS LOGGA HÄR*</a>
         <div class="shoppingbag">
-            <i class="fas fa-shopping-bag icon-2x" href= "#exampleModal" data-toggle="modal" aria-hidden="true">
+            <a href="checkout.html" class="text-dark">
+              <i class="fas fa-shopping-bag icon-2x"></i>
+            </a>
                     
-            </i>
         </div>
       </nav>
     </header>
 
-    <div class="container">
+    <div id="orderarea" class="container">
 
         <div class= "row justify-content-center mt-5 pt-4">
           <div class= "col-md-8 text-center">
@@ -127,11 +128,11 @@
               </div>
           </div>
 
-          <div class="form-row justify-content-center">
+          <!-- <div class="form-row justify-content-center">
             <div class="form-group col-md-10 text-center">
               <button type="submit" id= "formSubmit" class="btn btn-dark w-100">Fortsätt</button>
             </div>
-        </div>
+        </div> -->
           
       </form>
 
@@ -147,10 +148,10 @@
           <div class="list-group">
             <div class="btn-group btn-group-toggle d-flex flex-column" data-toggle="buttons">
               <label id="standard" class="btn btn-secondary active">
-                <input type="radio" name="options" autocomplete="off" checked> Active
+                <input id="standardradio" type="radio" name="options" autocomplete="off" value="0" checked> Active
               </label>
               <label id="express" class="btn btn-secondary">
-                <input type="radio" name="options" autocomplete="off"> Radio
+                <input id="expressradio" type="radio" name="options" autocomplete="off" value="29"> Radio
               </label>
             </div>
 

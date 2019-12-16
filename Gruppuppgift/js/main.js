@@ -106,10 +106,6 @@ function displayProducts() {
         let price = $("<p>").html(products[i].price + " kr");
         product.append(price);
     }
-
-    $( "#toCheckOut" ).click(function() {
-        window.location = "html/checkout.html";
-      });
     
 }
 
@@ -140,6 +136,16 @@ function displayCart() {
         $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
+    }
+
+    if (cart.length) {
+        $("#toCheckOut").removeAttr("disabled", "disabled");
+        $( "#toCheckOut" ).click(function() {
+            window.location = "html/checkout.html";
+        });
+    }
+    else {
+        $("#toCheckOut").attr("disabled", "disabled");
     }
 
     calculateTotalPrice();

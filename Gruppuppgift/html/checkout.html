@@ -145,8 +145,15 @@
       <div class="row justify-content-center ship">
         <div class= "col-md-10">
           <div class="list-group">
-            <button type="button" id="express" class="list-group-item list-group-item-light mb-1 shipping">Expressfrakt 1-2 arbetsdagar - 29:-</button>
-            <button type="button" id="standard" class="list-group-item list-group-item-light shipping">Standardfrakt 4-5 arbetsdagar - Fri frakt</button>
+            <div class="btn-group btn-group-toggle d-flex flex-column" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+              </label>
+            </div>
+
           </div>
         </div>
       </div>
@@ -161,10 +168,17 @@
       <div class="row justify-content-center">
         <div class= "col-md-10">
           <div class="list-group">
-            <button type="button" id="klarna" class="list-group-item list-group-item-light mb-1 payment">Klarna Faktura - 14 dagar</button>
-            <button type="button" id="swish" class="list-group-item list-group-item-light mb-1 payment">Swish</button>
-            <button type="button" id="card" class="list-group-item list-group-item-light payment">Kontokort</button>
-            
+            <div class="btn-group btn-group-toggle d-flex flex-column" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+              </label>
+            </div>
           </div>
         </div>
       </div>

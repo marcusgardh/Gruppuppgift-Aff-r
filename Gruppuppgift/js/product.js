@@ -141,10 +141,6 @@ function displayProduct(x) {
     $("#buybutton").click(function() {
         addToCart(arrayId);
     });
-
-    $( "#toCheckOut" ).click(function() {
-        window.location.href = "\checkout.html";
-      });
 }
 
 function addToCart(x) {
@@ -215,6 +211,16 @@ function displayCart() {
         $("#badge").html(cartQuantity);
     }
 
+    if (cart.length) {
+        $("#toCheckOut").removeAttr("disabled", "disabled");
+        $( "#toCheckOut" ).click(function() {
+            window.location = "checkout.html";
+        });
+    }
+    else {
+        $("#toCheckOut").attr("disabled", "disabled");
+    }
+
     calculateTotalPrice();
 
 }
@@ -225,7 +231,7 @@ function removeFromCart(x) {
     console.log(x);
 
     for (let i = 0; i < cart.length; i++) {
-        if (cart[i].id === x ) {
+        if (cart[i].id === x + 1) {
             cart[i].quantity--;
 
             if (cart[i].quantity === 0) {

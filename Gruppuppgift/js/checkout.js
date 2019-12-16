@@ -31,11 +31,20 @@ $(document).ready(function() {
 
   displayCheckOut();
 
+<<<<<<< HEAD
   $("input").on( "click", function() {
     calculateTotalPrice($( "input:checked" ).val());
   });
   
+=======
+  $( ".theShipping" ).on( "click", function() {
+    $( "#allprice" ).html( $( "input:checked" ).val() + " kr");
 })
+
+>>>>>>> a7c053a435ac9f348625bd306b8eb4fdf071367f
+})
+
+console
 
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -114,8 +123,9 @@ function calculateTotalPrice(shipping) {
   }
 
   else {
-    $("#totalprice").html("<b>Totalt: </b> 0 kr");
+    $("#totalprice").html("<b>Pris: </b> 0 kr");
   }
+  console.log(totalPrice);
 
 }
 

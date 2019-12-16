@@ -63,7 +63,13 @@
         <div class="row justify-content-end theprice">
           <span id="totalprice" class= "py-2"></span>
         </div>
-      
+        <div class="row justify-content-end theprice">
+            <span id="shippingprice" class= "py-2"></span>
+          </div>
+          <div class="row justify-content-end theprice">
+              <span id="allprice" class= "py-2"></span>
+            </div>
+
 
         <!--Form for checkout-->
 
@@ -134,7 +140,7 @@
             </div>
         </div> -->
           
-      </form>
+      
 
       <!--Shipping Alternatives-->
       <div class="container" id= "pay-ship" aria-hidden="true">
@@ -146,12 +152,25 @@
       <div class="row justify-content-center ship">
         <div class= "col-md-10">
           <div class="list-group">
+<<<<<<< HEAD
+            <div class="btn-group btn-group-toggle d-flex flex-column theShipping" data-toggle="buttons">
+              <label class="btn btn-secondary active" id = "standard">
+                <input type="radio" name="options" autocomplete="off" value = 0 > Standardfrakt 4-5 arbetsdagar - Gratis
+              </label>
+              <label class="btn btn-secondary" id="express">
+                <input type="radio" name="options"  autocomplete="off" value = 29> Expressfrakt 1-2 arbetsdagar  - 29:-
+=======
             <div class="btn-group btn-group-toggle d-flex flex-column" data-toggle="buttons">
               <label id="standard" class="btn btn-secondary active">
                 <input id="standardradio" type="radio" name="options" autocomplete="off" value="0" checked> Active
               </label>
               <label id="express" class="btn btn-secondary">
+<<<<<<< HEAD
                 <input id="expressradio" type="radio" name="options" autocomplete="off" value="29"> Radio
+=======
+                <input type="radio" name="options" autocomplete="off"> Radio
+>>>>>>> 73d36d04388e9d6e2af1ac62843ccab724e11beb
+>>>>>>> a7c053a435ac9f348625bd306b8eb4fdf071367f
               </label>
             </div>
 
@@ -171,28 +190,30 @@
           <div class="list-group">
             <div class="btn-group btn-group-toggle d-flex flex-column" data-toggle="buttons">
               <label class="btn btn-secondary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Faktura - betala inom 14 dagar
               </label>
               <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+                <input type="radio" name="options" id="option2" autocomplete="off"> Kontokort
               </label>
               <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+                <input type="radio" name="options" id="option2" autocomplete="off"> Swish
               </label>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row justify-content-center">
-        <div class= "col-md-10 pt-4">
-          <button type="button" class="btn btn-dark w-100">Lägg Order</button>
-        </div>
-      </div>
+     
 
+      <div class="form-row justify-content-center">
+          <div class="form-group col-md-10 text-center mt-4">
+            <button type="submit" id= "order" class="btn btn-dark w-100">Lägg Order</button>
+          </div>
+      </div>
+</form> 
     </div>
   </div>
-    
+   
     <!-- Shoppingbag Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

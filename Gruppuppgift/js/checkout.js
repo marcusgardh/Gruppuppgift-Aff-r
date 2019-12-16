@@ -32,13 +32,13 @@ $(document).ready(function() {
   displayCheckOut();
 
 
-let $radios = $('input[name="theshipping"]');
- $radios.change(function() {
-  let $checked = $radios.filter(function() {
-    return $(this).prop('checked');
-  });
-  // Output the value of the checked radio
-  calculateTotalPrice($checked.val());
+  let $radios = $('input[name="theshipping"]');
+  $radios.change(function() {
+    let $checked = $radios.filter(function() {
+      return $(this).prop('checked');
+    });
+    // Output the value of the checked radio
+    calculateTotalPrice($checked.val());
 });
 
 });
@@ -46,8 +46,6 @@ let $radios = $('input[name="theshipping"]');
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   $("#checkOutBag").empty();
-
-  
 
   for (let i = 0; i < cart.length; i++) {
   
@@ -65,15 +63,21 @@ function displayCheckOut(){
     
     $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
 
-    let $radios = $('input[name="theshipping"]');
- $radios.change(function() {
-  let $checked = $radios.filter(function() {
-    return $(this).prop('checked');
-  });
-  // Output the value of the checked radio
-  calculateTotalPrice($checked.val());
-});
   }
+
+  let $radios = $('input[name="theshipping"]');
+  let $checked = $radios.filter(function() {
+      return $(this).prop('checked');
+    });
+    // Output the value of the checked radio
+    calculateTotalPrice($checked.val());
+  $radios.change(function() {
+    let $checked = $radios.filter(function() {
+      return $(this).prop('checked');
+    });
+    // Output the value of the checked radio
+    calculateTotalPrice($checked.val());
+  });
 
 }
 
@@ -117,20 +121,14 @@ function calculateTotalPrice(shipping) {
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
   }
-
-  if (totalPrice > 0) {
     
-    $("#totalprice").html("<b>Pris: </b>" + totalPrice + " kr");
-  }
+  $("#totalprice").html("<b>Pris: </b>" + totalPrice + " kr");
 
-  else {
-    $("#totalprice").html("<b>Totalt: </b> 0 kr");
-  }
   console.log(totalPrice);
 
   $("#shippingprice").html("<b>Frakt: </b>" + shipping + " kr");
 
-let allPrice = parseInt(totalPrice) + parseInt(shipping);
+  let allPrice = parseInt(totalPrice) + parseInt(shipping);
 
   $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
-  };
+}

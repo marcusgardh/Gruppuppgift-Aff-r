@@ -30,6 +30,14 @@ function CartProduct() {
 $(document).ready(function() {
 
   displayCheckOut();
+
+  $("#standard").click(function() {
+    calculateTotalPrice(0);
+  });
+
+  $("#express").click(function() {
+    calculateTotalPrice(29);
+  });
   
 })
 
@@ -92,23 +100,29 @@ function addToCart(x) {
   displayCheckOut();
 }
 
-function calculateTotalPrice() {
+function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let totalPrice = 0;
+  let shippingPrice = 0;
+
 
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
   }
 
+  if (shipping) {
+    shippingPrice = shippingPrice += shipping;
+  }
+
+  console.log(shippingPrice);
+
   if (totalPrice > 0) {
-    
     $("#totalprice").html("<b>Totalt: </b>" + totalPrice + " kr");
   }
 
   else {
     $("#totalprice").html("<b>Totalt: </b> 0 kr");
   }
-  console.log(totalPrice);
 
 }
 

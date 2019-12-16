@@ -215,7 +215,7 @@ function displayCart() {
         $("#toCheckOut").removeAttr("disabled", "disabled");
         $( "#toCheckOut" ).click(function() {
             window.location = "checkout.html";
-        });
+        }); 
     }
     else {
         $("#toCheckOut").attr("disabled", "disabled");

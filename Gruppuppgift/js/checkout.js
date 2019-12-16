@@ -102,16 +102,22 @@ function calculateTotalPrice() {
 
   if (totalPrice > 0) {
     
-    $("#totalprice").html("<b>Totalt: </b>" + totalPrice + " kr");
+    $("#totalprice").html("<b>Pris: </b>" + totalPrice + " kr");
   }
 
   else {
-    $("#totalprice").html("<b>Totalt: </b> 0 kr");
+    $("#totalprice").html("<b>Pris: </b> 0 kr");
   }
   console.log(totalPrice);
 
+  $("#shippingprice").html("<b>Frakt: </b>" + totalPrice + " kr");
+
+  $("#allprice").html("<b>Totalt: </b>" + totalPrice + " kr");
 }
 
+
+
+
   $("#formSubmit").click(function(){
-    $("#pay-ship").toggle();
+    $("#pay-ship").show();
   });

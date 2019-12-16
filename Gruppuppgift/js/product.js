@@ -194,7 +194,7 @@ function displayCart() {
     $("#badge").empty();
 
     for (let i = 0; i < cart.length; i++) {
-        let image = $("<img>").addClass("img-fluid w-25").attr("src", cart[i].image);
+        let image = $("<img>").addClass("img-fluid w-25 mr-4").attr("src", cart[i].image);
         let title = $("<p>").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id - 1);
@@ -206,7 +206,7 @@ function displayCart() {
         let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-4").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }

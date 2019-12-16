@@ -31,24 +31,31 @@ $(document).ready(function() {
 
   displayCheckOut();
 
-<<<<<<< HEAD
   $("input").on( "click", function() {
     calculateTotalPrice($( "input:checked" ).val());
   });
-  
-=======
+
   $( ".theShipping" ).on( "click", function() {
     $( "#allprice" ).html( $( "input:checked" ).val() + " kr");
 })
 
->>>>>>> a7c053a435ac9f348625bd306b8eb4fdf071367f
-})
 
-console
+
+let $radios = $('input[name="theshipping"]');
+ $radios.change(function() {
+  let $checked = $radios.filter(function() {
+    return $(this).prop('checked');
+  });
+  // Output the value of the checked radio
+  calculateTotalPrice($checked.val());
+});
+
 
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   $("#checkOutBag").empty();
+
+  
 
   for (let i = 0; i < cart.length; i++) {
   
@@ -66,8 +73,14 @@ function displayCheckOut(){
     
     $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
 
-    calculateTotalPrice();
-
+    let $radios = $('input[name="theshipping"]');
+ $radios.change(function() {
+  let $checked = $radios.filter(function() {
+    return $(this).prop('checked');
+  });
+  // Output the value of the checked radio
+  calculateTotalPrice($checked.val());
+});
   }
 
 }
@@ -123,11 +136,16 @@ function calculateTotalPrice(shipping) {
   }
 
   else {
-    $("#totalprice").html("<b>Pris: </b> 0 kr");
+    $("#totalprice").html("<b>Totalt: </b> 0 kr");
   }
   console.log(totalPrice);
 
-}
+  $("#shippingprice").html("<b>Frakt: </b>" + shipping + " kr");
+
+let allPrice = parseInt(totalPrice) + parseInt(shipping);
+
+  $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
+  };
 
   $("#formSubmit").click(function(){
     $("#pay-ship").toggle();
@@ -137,5 +155,3 @@ function orderComplete() {
   $("#orderarea").empty();
   $("body").append($("<h3>").html("Tack för din beställning"));
 }
-
-let allPrice = parseInt(totalPrice) + parseInt(shipping);

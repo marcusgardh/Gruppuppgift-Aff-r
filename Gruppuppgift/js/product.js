@@ -229,3 +229,22 @@ function removeFromCart(x) {
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }
+function calculateTotalPrice() {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    let totalPrice = 0;
+  
+    for (let i = 0; i < cart.length; i++) {
+      totalPrice += cart[i].price * cart[i].quantity;
+    }
+  
+    if (totalPrice > 0) {
+      
+      $("#cart").append($("<span>").html("<b>Totalt: </b>" + totalPrice + " kr"));
+    }
+  
+    else {
+      $("#cart").append($("<span>").html("<b>Totalt: </b> 0 kr"));
+    }
+    console.log(totalPrice);
+  
+  }

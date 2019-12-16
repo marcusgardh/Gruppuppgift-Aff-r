@@ -151,8 +151,15 @@
       <div class="row justify-content-center ship">
         <div class= "col-md-10">
           <div class="list-group">
-            <button type="button" id="express" class="list-group-item list-group-item-light mb-1 shipping">Expressfrakt 1-2 arbetsdagar - 29:-</button>
-            <button type="button" id="standard" class="list-group-item list-group-item-light shipping">Standardfrakt 4-5 arbetsdagar - Fri frakt</button>
+            <div class="btn-group btn-group-toggle d-flex flex-column theShipping" data-toggle="buttons">
+              <label class="btn btn-secondary active" id = "standard">
+                <input type="radio" name="options" autocomplete="off" value = 0 > Standardfrakt 4-5 arbetsdagar - Gratis
+              </label>
+              <label class="btn btn-secondary" id="express">
+                <input type="radio" name="options"  autocomplete="off" value = 29> Expressfrakt 1-2 arbetsdagar  - 29:-
+              </label>
+            </div>
+
           </div>
         </div>
       </div>
@@ -164,11 +171,28 @@
             <h4>Välj Betalningsalternativ</h4>
           </div>
       </div>
+      <div class="row justify-content-center">
+        <div class= "col-md-10">
+          <div class="list-group">
+            <div class="btn-group btn-group-toggle d-flex flex-column" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Faktura - betala inom 14 dagar
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Kontokort
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Swish
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
 
      
 
       <div class="form-row justify-content-center">
-          <div class="form-group col-md-10 text-center">
+          <div class="form-group col-md-10 text-center mt-4">
             <button type="submit" id= "order" class="btn btn-dark w-100">Lägg Order</button>
           </div>
       </div>

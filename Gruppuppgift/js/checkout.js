@@ -30,8 +30,14 @@ function CartProduct() {
 $(document).ready(function() {
 
   displayCheckOut();
-  
+
+  $( ".theShipping" ).on( "click", function() {
+    $( "#allprice" ).html( $( "input:checked" ).val() + " kr");
 })
+
+})
+
+console
 
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -92,9 +98,10 @@ function addToCart(x) {
   displayCheckOut();
 }
 
-function calculateTotalPrice() {
+function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let totalPrice = 0;
+  let shippingprice = 0 || shipping;
 
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
@@ -110,14 +117,5 @@ function calculateTotalPrice() {
   }
   console.log(totalPrice);
 
-  $("#shippingprice").html("<b>Frakt: </b>" + totalPrice + " kr");
-
-  $("#allprice").html("<b>Totalt: </b>" + totalPrice + " kr");
 }
 
-
-
-
-  $("#formSubmit").click(function(){
-    $("#pay-ship").show();
-  });

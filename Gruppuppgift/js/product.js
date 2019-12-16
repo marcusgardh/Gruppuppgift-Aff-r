@@ -237,7 +237,6 @@ function removeFromCart(x) {
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }
-
 function calculateTotalPrice() {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     let totalPrice = 0;

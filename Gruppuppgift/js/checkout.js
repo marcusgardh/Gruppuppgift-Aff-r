@@ -30,7 +30,6 @@ function CartProduct() {
 $(document).ready(function() {
 
   displayCheckOut();
-
   
 })
 
@@ -52,7 +51,7 @@ function displayCheckOut(){
     });
     let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
     
-    $("#checkOutBag").append(($("<div>").addClass("product col-5 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
+    $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
 
     calculateTotalPrice();
 
@@ -112,3 +111,7 @@ function calculateTotalPrice() {
   console.log(totalPrice);
 
 }
+
+  $("#formSubmit").click(function(){
+    $("#pay-ship").toggle();
+  });

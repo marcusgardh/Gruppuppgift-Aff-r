@@ -34,3 +34,16 @@ footer {
     cursor: pointer;
     
 }
+
+.theprice {
+
+    border-bottom: solid 1px rgb(209, 209, 209);
+
+}
+
+#checkOutBag {
+
+
+border: solid 1px rgb(209, 209, 209);
+
+}

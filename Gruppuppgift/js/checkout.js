@@ -68,7 +68,7 @@ function displayCheckOut(){
       addToCart(cart[i].id);
 
     });
-    let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+    let price = $("<p>").addClass("pt-2").html(cart[i].price * cart[i].quantity + " kr");
     
     $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
 

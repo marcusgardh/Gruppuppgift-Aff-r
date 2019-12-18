@@ -18,12 +18,13 @@
     
     width: 145px;
 }
+
 .displayimage{
     max-width:100%;
     width: 500px;
     height: auto;
-    
 }
+
 footer {
 
  border-top: solid 1px gray;
@@ -43,7 +44,12 @@ footer {
 
 #checkOutBag {
 
-
 border: solid 1px rgb(209, 209, 209);
+
+}
+
+.totPriceCart {
+
+    border-top: solid 1px rgb(209, 209, 209);
 
 }

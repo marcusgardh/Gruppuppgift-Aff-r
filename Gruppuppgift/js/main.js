@@ -126,14 +126,14 @@ function displayCart() {
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         });
-        let quantity = $("<span>").html(cart[i].quantity);
+        let quantity = $("<span>").addClass("mx-2").html(cart[i].quantity);
         let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id);
         });
-        let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
+        let quantityContainer = $("<div>").addClass("mb-3").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }
@@ -195,7 +195,7 @@ function calculateTotalPrice() {
   
     if (totalPrice > 0) {
       
-      $("#cart").append($("<span>").html("<b>Totalt: </b>" + totalPrice + " kr"));
+        $("#cart").append($("<div>").addClass("row justify-content-end d-flex totPriceCart pt-2 mt-3").append($("<span>").addClass("pr-3").html("<b>Totalt: </b> " + totalPrice + " kr")));
     }
   
     else {

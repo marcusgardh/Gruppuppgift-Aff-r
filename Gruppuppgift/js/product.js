@@ -118,6 +118,42 @@ function createProducts() {
     product8.price = 179;
     product8.description = "Vacker poster med ett fotografiskt motiv av en rosa vägg med ett vackert hålmönster i marockansk stil. Det ihåliga mönstret skapar en vacker och hänförande dynamik.";
     products.push(product8);
+
+    let product9 = new Product();
+    product9.id = 9;
+    product9.title = "Golden Palm";
+    product9.image = "../images/product_9.jpg";
+    product9.secondImage = "../images/product_9.2.jpg";
+    product9.price = 199;
+    product9.description = "Foto av palmblad i dova toner av guld, grått och grönt.";
+    products.push(product9);
+
+    let product10 = new Product();
+    product10.id = 10;
+    product10.title = "Hiding in White";
+    product10.image = "../images/product_10.jpg";
+    product10.secondImage = "../images/product_10.2.jpg";
+    product10.price = 179;
+    product10.description = "Svartvitt fotografi av en siluett klädd vitt. Det böljande mjuka tyget döljer personen bakom."
+    products.push(product10);
+
+    let product11 = new Product();
+    product11.id = 11;
+    product11.title = "Brooklyn Building";
+    product11.image = "../images/product_11.jpg";
+    product11.secondImage = "../images/product_11.2.jpg";
+    product11.price = 179;
+    product11.description = "I Brooklyn, stadsdelen med störst befolkning i New York, hittar du New York-byggnader i en mer antik stil. Vårt kreativa team fotade denna fasad tillsammans med en trappuppgång som visar ett New York bortom studiolägenheter och moderna skyskrapor. Postern har en vit kant runt om som ramar in motivet fint.";
+    products.push(product11);
+
+    let product12 = new Product();
+    product12.id = 12;
+    product12.title = "Purpose";
+    product12.image = "../images/product_12.jpg";
+    product12.secondImage = "../images/product_12.2.jpg";
+    product12.price = 199;
+    product12.description = "Peytil - Purpose poster. Konstnärlig poster med motiv av en människa i flera färger uppdelade i lager. Denna poster blir definitvt en speciell dekorationdetalj i hemmet som inte kommer gå obemärkt förbi! Passar perfekt att sätta upp i ett vardagsrum eller sovrum och passar lika bra på en vägg enskild som tillsammans med fler posters. En populär kombination är att matcha våra posters med konstmotiv tillsammans med en av våra texttavlor. Motiv skapat av Peytil, ett Stockholmsbaserat konstprojekt med Eitil Thorén Due som grundare.";
+    products.push(product12);
 }
 
 function displayProduct(x) {

@@ -125,7 +125,7 @@ function createProducts() {
     product9.image = "../images/product_9.jpg";
     product9.secondImage = "../images/product_9.2.jpg";
     product9.price = 199;
-    product9.description = "Foto av palmblad i dova toner av guld, grått och grönt.";
+    product9.description = "Foto av palmblad mot en vägg i dova toner av guld, grått och grönt.";
     products.push(product9);
 
     let product10 = new Product();

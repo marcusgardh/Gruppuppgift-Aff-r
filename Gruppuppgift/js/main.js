@@ -138,6 +138,15 @@ function displayCart() {
         $("#badge").html(cartQuantity);
     }
 
+    if (cartQuantity === 0) {
+
+        $("#badge").hide()
+    }
+
+    else {
+        $("#badge").show();
+    }
+
     if (cart.length) {
         $("#toCheckOut").removeAttr("disabled", "disabled");
         $( "#toCheckOut" ).click(function() {

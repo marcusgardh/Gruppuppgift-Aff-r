@@ -44,7 +44,14 @@ footer {
 
 #shoppingbag {
     cursor: pointer;
+    font-size: 1.5rem;
     
+}
+
+#badge {
+
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif
 }
 
 .theprice {

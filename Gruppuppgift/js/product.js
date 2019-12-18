@@ -61,7 +61,7 @@ function createProducts() {
     product2.title = "Deep Teal Stone";
     product2.image = "../images/product_2.jpeg";
     product2.secondImage = "../images/product_2.2.jpg";
-    product2.price = 179;
+    product2.price = 199;
     product2.description = "Grafiskt och elegant print med motiv av ett grönblått mönster och eleganta guldiga linjer. Postern passar lika bra för sig själv som i kombination med andra posters i en trendig tavelvägg.";
     products.push(product2);
 
@@ -209,6 +209,15 @@ function displayCart() {
         $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
+    }
+
+    if (cartQuantity === 0) {
+
+        $("#badge").hide()
+    }
+
+    else {
+        $("#badge").show();
     }
 
     if (cart.length) {

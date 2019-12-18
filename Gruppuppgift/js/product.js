@@ -195,7 +195,7 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         let image = $("<img>").addClass("img-fluid w-25").attr("src", cart[i].image);
-        let title = $("<p>").html(cart[i].title);
+        let title = $("<h6>").addClass("mb-4").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id - 1);
         });
@@ -203,7 +203,7 @@ function displayCart() {
         let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id - 1);
         });
-        let quantityContainer = $("<div>").addClass("mb-3").append(minus).append(quantity).append(plus);
+        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
         $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));

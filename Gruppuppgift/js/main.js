@@ -92,7 +92,7 @@ function displayProducts() {
         let product = $("<div>").addClass("col-6 col-md-3 productdiv text-center");
         container.append(product);
 
-        let imageDiv = $("<div>");
+        let imageDiv = $("<div>").addClass("mb-2");
         let image = $("<img>").addClass("img-fluid productimage").attr("src", products[i].image).click(function() {
             window.location.href = "html/product.html?id=" + products[i].id;
         });
@@ -100,7 +100,7 @@ function displayProducts() {
         product.append(imageDiv);
         imageDiv.append(image);
 
-        let title = $("<h6>").html(products[i].title);
+        let title = $("<h5>").html(products[i].title);
         product.append(title);
 
         let price = $("<p>").html(products[i].price + " kr");
@@ -122,7 +122,7 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
-        let title = $("<p>").html(cart[i].title);
+        let title = $("<h6>").addClass("mb-4").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         });
@@ -130,7 +130,7 @@ function displayCart() {
         let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id);
         });
-        let quantityContainer = $("<div>").addClass("mb-3").append(minus).append(quantity).append(plus);
+        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
         $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));

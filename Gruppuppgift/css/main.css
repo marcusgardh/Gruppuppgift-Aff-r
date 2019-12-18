@@ -1,3 +1,14 @@
+body {
+
+    font-family: 'Montserrat', sans-serif
+}
+
+h6 , h3 , h5 {
+
+    font-family: 'Playfair Display', serif;
+
+}
+
 .productimage:hover {
     cursor: pointer;
 
@@ -27,7 +38,7 @@
 
 footer {
 
- border-top: solid 1px gray;
+ border-top: solid 1px rgb(209, 209, 209);
 }
 
 

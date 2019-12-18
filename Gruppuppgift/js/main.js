@@ -94,7 +94,7 @@ function createProducts() {
     product10.title = "Hiding in White";
     product10.image = "images/product_10.jpg";
     product10.price = 179;
-    product10.description = "Svartvitt fotografi av en siluett klädd vitt. Det böljande mjuka tyget döljer personen bakom.";
+    product10.description = "Svartvitt fotografi av en person dold bakom böljande vitt tyg."
     products.push(product10);
 
     let product11 = new Product();
@@ -164,9 +164,12 @@ function displayCart() {
         });
         let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+        let deleteIt = $("<i>").addClass("fas fa-times").click(function() {
+            deleteItem(cart[i].id);
+        });
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
-
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append($("<div>").append(deleteIt).append(title).append(quantityContainer).append(price))));
+       
         $("#badge").html(cartQuantity);
     }
 
@@ -221,6 +224,20 @@ function removeFromCart(x) {
             }
         }
     }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+
+function deleteItem(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === x ) {
+        cart.splice(i,1);
+    }
+}
+
 
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();

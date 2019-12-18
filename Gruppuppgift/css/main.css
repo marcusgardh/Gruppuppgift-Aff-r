@@ -6,7 +6,7 @@ body {
 h6 , h3 , h5 {
 
     font-family: 'Playfair Display', serif;
-
+    color: #414141;
 }
 
 h3 {
@@ -14,6 +14,12 @@ h3 {
     font-size: 2rem;
 }
 
+#logo {
+
+    font-family: 'Cantarell', sans-serif;
+    font-size: 1.5em;
+    color: #414141;
+}
 .productimage:hover {
     cursor: pointer;
 

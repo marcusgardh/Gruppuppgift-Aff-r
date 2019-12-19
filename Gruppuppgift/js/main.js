@@ -133,7 +133,7 @@ function displayCart() {
         let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-1").append(title).append(quantityContainer).append(price)));
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }

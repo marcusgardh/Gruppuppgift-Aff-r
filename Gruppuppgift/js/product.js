@@ -28,6 +28,7 @@ $(document).ready(function() {
 
 })
 
+// Klass för produkterna som de visas på produktsidan
 function Product() {
     this.id,
     this.title,
@@ -38,6 +39,7 @@ function Product() {
     this.size
 }
 
+//Klass för produkterna som de visas i varukorgen
 function CartProduct() {
     this.title,
     this.image,
@@ -47,6 +49,7 @@ function CartProduct() {
 
 }
 
+// Skapa upp alla object (produkter) utifrån Product-klassen
 function createProducts() {
     let product1 = new Product();
     product1.id = 1;
@@ -246,16 +249,16 @@ function displayCart() {
     for (let i = 0; i < cart.length; i++) {
         let image = $("<img>").addClass("img-fluid w-25").attr("src", cart[i].image);
         let title = $("<h6>").addClass("mb-4").html(cart[i].title);
-        let minus = $("<i>").addClass("fas fa-minus").click(function() {
+        let minus = $("<i>").addClass("fas fa-minus quant").click(function() {
             removeFromCart(cart[i].id - 1);
         });
         let quantity = $("<span>").addClass("mx-2").html(cart[i].quantity);
-        let plus = $("<i>").addClass("fas fa-plus").click(function() {
+        let plus = $("<i>").addClass("fas fa-plus quant").click(function() {
             addToCart(cart[i].id - 1);
         });
         let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
-        let deleteIt = $("<i>").addClass("fas fa-times delIcon").click(function() {
+        let deleteIt = $("<i>").addClass("fas fa-times quant").click(function() {
             deleteItem(cart[i].id);
         });
         

@@ -37,9 +37,6 @@ $(document).ready(function() {
 
   displayCheckOut();
 
-  // $("#order").click(function() {
-  //   alert("Hej");
-  // });
 
   let $radios = $('input[name="theshipping"]');
   $radios.change(function() {
@@ -52,28 +49,34 @@ $(document).ready(function() {
 
 });
 
+// Visa varukorgen som hämtas från LocalStorage
 function displayCheckOut(){
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   $("#checkOutBag").empty();
 
   for (let i = 0; i < cart.length; i++) {
   
-    let img = $("<img>").addClass("img-fluid").attr("src", cart[i].image);
+    let img = $("<img>").addClass("img-fluid w-25 imgcheck mr-4").attr("src", cart[i].image);
     let text = $("<h6>").addClass("py-2").html(cart[i].title);
-    let minus = $("<i>").addClass("fas fa-minus").click(function() {
+    let minus = $("<i>").addClass("fas fa-minus mt-2 quant").click(function() {
       removeFromCart(cart[i].id); 
     });
-    let quantity = $("<span>").addClass("px-2").html(cart[i].quantity);
-    let plus = $("<i>").addClass("fas fa-plus").click(function() {
+    let quantity = $("<span>").addClass("px-2 mt-2").html(cart[i].quantity);
+    let plus = $("<i>").addClass("fas fa-plus mt-2 quant").click(function() {
       addToCart(cart[i].id);
-
     });
-    let price = $("<p>").addClass("pt-2").html(cart[i].price * cart[i].quantity + " kr");
+    let deleteIt = $("<i>").addClass("fas fa-times d-flex quant pt-2 pb-3").click(function() {
+            deleteItem(cart[i].id);
+    });
+
     
-    $("#checkOutBag").append(($("<div>").addClass("product col-6 col-md-2").append(img).append(text).append(minus).append(quantity).append(plus).append(price)));
+    let price = $("<p>").addClass("pt-4").html(cart[i].price * cart[i].quantity + " kr");
+    
+    $("#checkOutBag").append(($("<div>").addClass("d-flex mb-1 pl-3 pb-1 w-100 img-fluid border-bottom").append(img).append($("<div>").addClass("w-100 d-flex justify-content-between ml-3").append(text).append($("<div>").addClass("justify-content-end mr-4").append(deleteIt).append(minus).append(quantity).append(plus).append(price)))));
 
   }
 
+  // Välj fraktmetod. Utifrån radioknapparnas value bestäms fraktpriset
   let $radios = $('input[name="theshipping"]');
   let $checked = $radios.filter(function() {
       return $(this).prop('checked');
@@ -90,6 +93,7 @@ function displayCheckOut(){
 
 }
 
+//Minska antalet produkter i varukorgen med 1 av det specifika id:t
 function removeFromCart(x) {
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   
@@ -107,6 +111,21 @@ localStorage.setItem("cart", JSON.stringify(cart));
 displayCheckOut();
 }
 
+//Ta bort varan ur varukorgen oavsett kvantitet
+function deleteItem(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === x ) {
+        cart.splice(i,1);
+    }
+}
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCheckOut();
+}
+
+//Öka antalet produkter i varukorgen med 1 av det specifika id:t
 function addToCart(x) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
@@ -122,11 +141,11 @@ function addToCart(x) {
 
   displayCheckOut();
 }
-
+// Räkna ut totalpris på beställningen inkl frakt, skriv ut pris, frakt och pris+frakt
 function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let totalPrice = 0;
-
+ 
   for (let i = 0; i < cart.length; i++) {
     totalPrice += cart[i].price * cart[i].quantity;
   }
@@ -142,11 +161,12 @@ function calculateTotalPrice(shipping) {
   $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
 }
 
+// När order lagts, töm innehållet på sidan
 function orderComplete(firstName, mail) {
   $("#maincontent").empty();
-
+  //Slumpa ordernummer
   let orderNumber = Math.floor(Math.random() * 1001);
-
+  //Tackmeddelande med namn och mail från formuläret + slumpat ordernummer
   $("#maincontent").append($("<h3>").addClass("mt-5").html("Tack för din order " + firstName + ", ditt ordernummer är #" + orderNumber));
   $("#maincontent").append($("<h3>").html("Ditt kvitto har skickats till " + mail));
 }

@@ -167,6 +167,9 @@ function displayCart() {
         let deleteIt = $("<i>").addClass("fas fa-times quant").click(function() {
             deleteItem(cart[i].id);
         });
+        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus).append(deleteIt);
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+        
         
         $("#cart").append($("<div>").addClass("d-flex mb-1 justify-content-between").append(image).append($("<div>").addClass("ml-2").append(title).append($("<div>").append(deleteIt).append(quantityContainer).append(price))));
        

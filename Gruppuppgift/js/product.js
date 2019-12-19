@@ -261,8 +261,10 @@ function displayCart() {
         let deleteIt = $("<i>").addClass("fas fa-times quant").click(function() {
             deleteItem(cart[i].id);
         });
+        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus).append(deleteIt);
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("d-flex ml-3").append($("<div>").addClass("d-block").append(deleteIt).append(title).append(quantityContainer).append(price))));
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
 
         $("#badge").html(cartQuantity);
     }

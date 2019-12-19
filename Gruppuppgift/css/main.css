@@ -1,6 +1,19 @@
-body {
+html, body {
+    height: 100%;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
     font-family: 'Montserrat', sans-serif
+}
+
+#pagecontent {
+    flex: 1 0 auto;
+}
+
+#footercontent {
+    flex-shrink: 0;
 }
 
 h6 , h3 , h5 {

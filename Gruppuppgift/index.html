@@ -13,11 +13,13 @@
     </head>
 
     <body>
+    <div id="pagecontent">
 
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
+        <header class="container">
+          <nav id="navigation" class="row navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-between">
+            <div class="col-4">
               
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -34,7 +36,7 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#productcontainer" id="navbarDropdownMenuLink"
                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        PRODUKTER
+                       PRODUKTER
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Tavlor</a>
@@ -43,43 +45,45 @@
                       </div>
                     </li>
                   </ul>
-                      
+                  
                 </div>
-                <div class="text-center justify-content-center">
-                  <a class="navbar-brand text-center" id="logo" href="index.html">OINESED</a>
-                </div>
-                <div class="shoppingbag h-100">
-                  <i class="fas fa-shopping-bag my-auto" id="shoppingbag" href="#exampleModal" data-toggle="modal" aria-hidden="true">
-                    <span id="badge" class="badge-pill badge-secondary"></span></i>
-                </div>
-              </nav>
-        </header>
-                    
-        <div id="productcarousel" class="carousel slide carousel-fade mt-3 pb-4" data-interval="2000" data-ride="carousel">
+              </div>
+              <div class="text-center col-4">
+                <a class="navbar-brand text-center" id="logo" href="index.html">OINESED</a>
+              </div>
+              <div class="shoppingbag col-4 h-100 d-flex justify-content-end">
+                <i class="fas fa-shopping-bag my-auto" id="shoppingbag" href="#exampleModal" data-toggle="modal" aria-hidden="true">
+                  <span id="badge" class="badge-pill badge-secondary"></span>
+                </i>
+              </div>
+            </nav>
+          </header>
+          
+          <div id="productcarousel" class="carousel slide carousel-fade mt-3 pb-4" data-interval="2000" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#productcarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#productcarousel" data-slide-to="1"></li>
+              <li data-target="#productcarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#productcarousel" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="images/carousel_1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="images/carousel_2.jpg" alt="Second slide">
-                </div>  
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="images/carousel_1.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="images/carousel_2.jpg" alt="Second slide">
+              </div>  
             </div>
             <a class="carousel-control-prev" href="#productcarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Förra</span>
-            </a>
-            <a class="carousel-control-next" href="#productcarousel" role="button" data-slide="next">
+              </a>
+              <a class="carousel-control-next" href="#productcarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Nästa</span>
-            </a>
-        </div>
-
-        <!-- Shoppingbag Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              </a>
+            </div>
+            
+      <!-- Shoppingbag Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -97,25 +101,28 @@
           </div>
         </div>
       </div>
-
+      
+      <div class="container">
+        <div id="productcontainer" class="row"></div>
+      </div>
+    </div>
+    
+    <div id="footercontent">   
+      <footer class="footer py-3 bg-white">
         <div class="container">
-            <div id="productcontainer" class="row"></div>
+          <span class="text-muted">
+            <a href="#" class="text-muted">Kontakt</a> | <a href="#" class="text-muted">Villkor</a> | <a href="#" class="text-muted">GDPR</a>
+          </span>
         </div>
+      </footer>
+    </div>    
 
-        <footer class="footer py-3 bg-white">
-          <div class="container">
-            <span class="text-muted">
-              <a href="#" class="text-muted">Kontakt</a> | <a href="#" class="text-muted">Villkor</a> | <a href="#" class="text-muted">GDPR</a></span>
-          </div>
-          </footer>
-        
-
-        <!--JavaScript-->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="https://kit.fontawesome.com/a6945a1720.js" crossorigin="anonymous" SameSite="None"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+      <!--JavaScript-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://kit.fontawesome.com/a6945a1720.js" crossorigin="anonymous" SameSite="None"></script>
+      <script type="text/javascript" src="js/main.js"></script>
     </body>
 
 </html>

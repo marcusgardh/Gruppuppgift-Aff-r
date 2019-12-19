@@ -111,5 +111,9 @@ max-width: 100px;
 
     cursor: pointer;
 
+}
 
+.modal-header {
+
+border-color: white;
 }

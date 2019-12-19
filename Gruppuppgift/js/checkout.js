@@ -56,7 +56,7 @@ function displayCheckOut(){
 
   for (let i = 0; i < cart.length; i++) {
   
-    let img = $("<img>").addClass("img-fluid w-25 imgcheck mr-4").attr("src", cart[i].image);
+    let img = $("<img>").addClass("img-fluid w-25 imgcheck mr-3").attr("src", cart[i].image);
     let text = $("<h6>").addClass("py-2").html(cart[i].title);
     let minus = $("<i>").addClass("fas fa-minus mt-2 quant").click(function() {
       removeFromCart(cart[i].id); 
@@ -72,7 +72,7 @@ function displayCheckOut(){
     
     let price = $("<p>").addClass("pt-4").html(cart[i].price * cart[i].quantity + " kr");
     
-    $("#checkOutBag").append(($("<div>").addClass("d-flex mb-1 pl-3 pb-1 w-100 img-fluid border-bottom").append(img).append($("<div>").addClass("w-100 d-flex justify-content-between ml-3").append(text).append($("<div>").addClass("justify-content-end mr-4").append(deleteIt).append(minus).append(quantity).append(plus).append(price)))));
+    $("#checkOutBag").append(($("<div>").addClass("d-flex mb-1 pl-3 py-1 w-100 img-fluid border-top").append(img).append($("<div>").addClass("w-100 d-flex justify-content-between ml-3").append(text).append($("<div>").addClass("justify-content-end mr-4").append(deleteIt).append(minus).append(quantity).append(plus).append(price)))));
 
   }
 

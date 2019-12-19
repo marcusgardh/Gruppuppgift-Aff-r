@@ -153,7 +153,7 @@ function displayCart() {
     $("#badge").empty();
 
     for (let i = 0; i < cart.length; i++) {
-        let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
+        let img = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
         let title = $("<h6>").addClass("mb-4").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus quant").click(function() {
             removeFromCart(cart[i].id);
@@ -162,16 +162,14 @@ function displayCart() {
         let plus = $("<i>").addClass("fas fa-plus quant").click(function() {
             addToCart(cart[i].id);
         });
-        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
-        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
-        let deleteIt = $("<i>").addClass("fas fa-times quant").click(function() {
+       
+        let deleteIt = $("<i>").addClass("fas fa-times quant pb-4").click(function() {
             deleteItem(cart[i].id);
         });
         let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus).append(deleteIt);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
-        
-        $("#cart").append($("<div>").addClass("d-flex mb-1 justify-content-between").append(image).append($("<div>").addClass("ml-2").append(title).append($("<div>").append(deleteIt).append(quantityContainer).append(price))));
+        $("#cart").append(($("<div>").addClass("d-flex pl-3 pt-1 pb-1 w-100 img-fluid border-top").append(img).append($("<div>").addClass("w-100 d-flex justify-content-between ml-3 pt-2").append(title).append($("<div>").addClass("justify-content-end mr-4").append(deleteIt).append(quantityContainer).append(price)))));
        
         $("#badge").html(cartQuantity);
     }
@@ -256,7 +254,7 @@ function calculateTotalPrice() {
   
     if (totalPrice > 0) {
       
-        $("#cart").append($("<div>").addClass("row justify-content-end d-flex totPriceCart pt-2 mt-3").append($("<span>").addClass("pr-3").html("<b>Totalt: </b> " + totalPrice + " kr")));
+        $("#cart").append($("<div>").addClass("row justify-content-end d-flex totPriceCart py-2").append($("<span>").addClass("pr-3").html("<b>Totalt: </b> " + totalPrice + " kr")));
     }
   
     else {

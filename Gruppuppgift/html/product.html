@@ -9,125 +9,126 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Cantarell|Montserrat:300|Playfair+Display&display=swap" rel="stylesheet">
-
-        
   </head>
-  <body>    
-    <header>
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
-              
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">HEM </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">OM OSS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">FAQ</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#productcontainer" id="navbarDropdownMenuLink"
-               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                PRODUKTER
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Tavlor</a>
-                <a class="dropdown-item" href="#">Affischer</a>
-                <a class="dropdown-item" href="#">Ramar</a>
-              </div>
-            </li>
-          </ul>
-              
-        </div>
-        <div class="text-center justify-content-center">
-          <a class="navbar-brand text-align-center" id="logo" href="../index.html">OINESED</a>
-        </div>
-        <div class="shoppingbag h-100">
-          <i class="fas fa-shopping-bag my-auto" id="shoppingbag" href="#exampleModal" data-toggle="modal" aria-hidden="true">
-            <span id="badge" class="badge-pill badge-secondary"></span></i>
-        </div>
-      </nav>
-    </header>
-   
-   
-      
-    <div class = "container mt-5 pt-3">
-      <div class="row justify-content-center">
-
-        <div class="col-sm-12 col-lg-4 pt-3">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval ="false">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img id ="productimage" class="d-block w-100" src="" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img id = "productsecondimage" class="d-block w-100" src="" alt="Second slide">
-              </div>
+  <body>  
+    <div id="pagecontent">
+      <header class="container">
+        <nav id="navigation" class="row navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-between">
+          <div class="col-4">  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">HEM <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">OM OSS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">FAQ</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#productcontainer" id="navbarDropdownMenuLink"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    PRODUKTER
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Tavlor</a>
+                    <a class="dropdown-item" href="#">Affischer</a>
+                    <a class="dropdown-item" href="#">Ramar</a>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>       
-        </div>
-
-        <div class="col-sm-12 col-lg-6 pt-3">
-          <div class = "pb-4 text-center">
-            <h3 id="producttitle"></h3>
           </div>
-          <div class = px-3>
-            <span id ="productdescription"></span>
-            <p id ="productsize" class= "mt-4"></p>
-          </div>    
-          <div class = "text-center">
-            <h4 id = "productprice" class="mt-4 pb-2"></h4>
+          <div class="text-center col-4">
+            <a class="navbar-brand text-center" id="logo" href="../index.html">OINESED</a>
           </div>
-          <button id="buybutton" type="button" class="btn btn-dark btn-block" href="#exampleModal" data-toggle="modal">Lägg i varukorg</button>
-        </div>
-
-      </div>
-    </div>
-              
-    <!-- Shoppingbag Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Din Varukorg</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+          <div class="shoppingbag col-4 h-100 d-flex justify-content-end">
+            <i class="fas fa-shopping-bag my-auto" id="shoppingbag" href="#exampleModal" data-toggle="modal" aria-hidden="true">
+              <span id="badge" class="badge-pill badge-secondary"></span>
+            </i>
+          </div>
+        </nav>
+      </header>
+    
+      <div class = "container mt-5 pt-3">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-lg-4 pt-3">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval ="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img id="productimage" class="d-block w-100" src="" alt="First slide" />
+                </div>
+                <div class="carousel-item">
+                  <img id = "productsecondimage" class="d-block w-100" src="" alt="Second slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>       
+          </div>
+        
+          <div class="col-sm-12 col-lg-6 pt-3">
+            <div class = "pb-4 text-center">
+              <h3 id="producttitle"></h3>
+            </div>
+            <div class = px-3>
+              <span id ="productdescription"></span>
+              <p id ="productsize" class= "mt-4"></p>
+            </div>    
+            <div class = "text-center">
+              <h4 id = "productprice" class="mt-4 pb-2"></h4>
+            </div>
+            <button id="buybutton" type="button" class="btn btn-dark btn-block" href="#exampleModal" data-toggle="modal">
+              Lägg i varukorg
             </button>
           </div>
-          <div id="cart" class="modal-body pb-2">
-              
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark w-100" id= "toCheckOut" >Till kassan</button>
+        </div>
+      </div>
+  
+      <!-- Shoppingbag Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Din Varukorg</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="cart" class="modal-body pb-2"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark w-100" id= "toCheckOut" >Till kassan</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-  <footer class="footer py-3 mt-4 bg-white">
-          <div class="container">
-            <span class="text-muted">
-              <a href="#" class="text-muted">Kontakt</a> | <a href="#" class="text-muted">Villkor</a> | <a href="#" class="text-muted">GDPR</a></span>
-          </div>
-          </footer>
+    
+    <div id="footercontent">
+      <footer class="footer py-3 mt-4 bg-white">
+        <div class="container">
+          <span class="text-muted">
+            <a href="#" class="text-muted">Kontakt</a> | <a href="#" class="text-muted">Villkor</a> | <a href="#" class="text-muted">
+              GDPR
+            </a>
+          </span>
+        </div>
+      </footer>
+    </div>
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

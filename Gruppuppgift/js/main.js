@@ -154,7 +154,7 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
-        let title = $("<h6>").addClass("mb-4").html(cart[i].title);
+        let title = $("<h6>").addClass("mb-2").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         });
@@ -162,13 +162,14 @@ function displayCart() {
         let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id);
         });
-        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
-        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
-        let deleteIt = $("<i>").addClass("fas fa-times").click(function() {
+        let deleteIt = $("<i>").addClass("fas fa-times ml-5").click(function() {
             deleteItem(cart[i].id);
         });
+        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus).append(deleteIt);
+        let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append($("<div>").append(deleteIt).append(title).append(quantityContainer).append(price))));
+        
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
        
         $("#badge").html(cartQuantity);
     }

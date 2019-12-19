@@ -143,10 +143,15 @@ function calculateTotalPrice(shipping) {
 }
 
 function orderComplete(firstName, mail) {
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  cart = [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
   $("#maincontent").empty();
 
   let orderNumber = Math.floor(Math.random() * 1001);
 
   $("#maincontent").append($("<h3>").addClass("mt-5 pt-3").html("Tack för din order " + firstName + ", ditt ordernummer är #" + orderNumber));
   $("#maincontent").append($("<h3>").html("Ditt kvitto har skickats till " + mail));
+  $("#maincontent").append($("<a>").attr("href", "../index.html").html("Tillbaka till start"));
 }

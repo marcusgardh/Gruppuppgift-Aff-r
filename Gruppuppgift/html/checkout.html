@@ -12,9 +12,12 @@
   </head>
 
   <body>    
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
-      
+    <div id="pagecontent">
+
+      <header class="container">
+        <nav id="navigation" class="row navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-between">
+          <div class="col-4">
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,6 +44,8 @@
             </li>
           </ul>
         </div>
+          </div>
+
         <div class="text-center col-4">
         <a class="navbar-brand text-center" id="logo" href="../index.html">OINESED</a>
       </div>
@@ -73,61 +78,65 @@
           </div>
         </div>
       
-        <!--Form for checkout-->
-        <div class="row justify-content-center text-center pb-4">
-          <div class="col-md-9 pt-4">
-            <h4 class=>Dina Uppgifter</h4>
-          </div>
+      
+      <div class="row justify-content-center text-center pb-4">
+        <div class="col-md-9 pt-4">
+          <h4 class=>Dina Uppgifter</h4>
         </div>
-        <form class="needs-validation" novalidate>
-          <div class="form-row justify-content-center">
-            <div class="form-group col-md-5">
+      </div>
+      <!--Form for checkout-->
+      <form class="needs-validation" novalidate>
+
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-5">
               <label for="inputFirstName">Förnamn</label>
               <input type="text" class="form-control" id="inputFirstName" placeholder="Förnamn" required />
-              <div class="invalid-feedback">
-                Fyll i ditt förnamn
-              </div>
+                <div class="invalid-feedback">
+                  Fyll i ditt förnamn
+                </div>
             </div>
-            <div class="form-group col-md-5">
+          <div class="form-group col-md-5">
               <label for="inputLastName">Efternamn</label>
               <input type="text" class="form-control" id="inputLastName" placeholder="Efternamn" required />
-              <div class="invalid-feedback">
-                Fyll i ditt efternamn
-              </div>
+                <div class="invalid-feedback">
+                  Fyll i ditt efternamn
+                </div>
             </div>
-          </div>    
-          <div class="form-row justify-content-center">
-            <div class="form-group col-md-10">
+          </div> 
+
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-10">
               <label for="inputAddress">Adress</label>
               <input type="text" class="form-control" id="inputAddress" placeholder="Adress" required />
-              <div class="invalid-feedback">
-                Fyll i din adress
-              </div>
-            </div>
+                <div class="invalid-feedback">
+                  Fyll i din adress
+                </div>
           </div>
-          <div class="form-row justify-content-center">
-            <div class="form-group col-md-4">
+        </div>
+
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-4">
               <label for="inputCity">Stad</label>
               <input type="text" class="form-control" id="inputCity" placeholder="Stad" required />
-              <div class="invalid-feedback">
-                Fyll i din postort
-              </div>
-            </div>
-            <div class="form-group col-md-2">
+                <div class="invalid-feedback">
+                  Fyll i din postort
+                </div>
+          </div>
+          <div class="form-group col-md-2">
               <label for="inputZip">Postnummer</label>
               <input type="text" class="form-control" id="inputZip" placeholder="Postnummer" required />
-              <div class="invalid-feedback">
-                Fyll i ditt postnummer
-              </div>
+                <div class="invalid-feedback">
+                  Fyll i ditt postnummer
+                </div>
             </div>
-            <div class="form-group col-md-4">
+          <div class="form-group col-md-4">
               <label for="inputEmail">Email</label>
               <input type="email" class="form-control" id="inputEmail" placeholder="Email" required />
-              <div class="invalid-feedback">
-                Fyll i giltig email-adress
-              </div>
-            </div>
+                <div class="invalid-feedback">
+                  Fyll i giltig email-adress
+                </div>
           </div>
+        </div>
           
           <!--Shipping Alternatives-->
           <div class="container" id= "pay-ship" aria-hidden="true">
@@ -180,8 +189,9 @@
                 <button type="submit" id= "order" class="btn btn-dark w-100">Lägg Order</button>
               </div>
             </div>
-          </form> 
-        </div>
+
+        </form> 
+    </div>
    
         <!-- Shoppingbag Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -200,6 +210,7 @@
           </div>
         </div>
       </div>
+
     </div>
         
     <div id="footercontent">

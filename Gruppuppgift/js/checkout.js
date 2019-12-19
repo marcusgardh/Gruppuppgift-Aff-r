@@ -161,17 +161,18 @@ function calculateTotalPrice(shipping) {
   $("#allprice").html("<b>Totalt: </b>" + allPrice + " kr");
 }
 
-// När order lagts, töm innehållet på sidan
+//Ta värdena förnamn och mail från formuläret
 function orderComplete(firstName, mail) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   cart = [];
   localStorage.setItem("cart", JSON.stringify(cart));
-  
+  // När order lagts, töm innehållet på sidan
   $("#maincontent").empty();
   //Slumpa ordernummer
-  let orderNumber = Math.floor(Math.random() * 1001);
+  let orderNumber = Math.floor(Math.random() * 10001);
 
-  $("#maincontent").append($("<h3>").addClass("mt-5 pt-3").html("Tack för din order " + firstName + ", ditt ordernummer är #" + orderNumber));
-  $("#maincontent").append($("<h3>").html("Ditt kvitto har skickats till " + mail));
-  $("#maincontent").append($("<a>").attr("href", "../index.html").html("Tillbaka till start"));
+  $("#maincontent").append($("<div>").addClass("thanks").append($("<h3>").addClass("mt-5 pt-5").html("Tack för din order " + firstName + ", ditt ordernummer är #" + orderNumber)));
+  $(".thanks").append($("<h4>").html("Ditt kvitto har skickats till " + mail));
+  $(".thanks").append($("<a>").addClass("btn btn-secondary btn-lg active").attr("href", "../index.html").html("Tillbaka till start"));
+  
 }

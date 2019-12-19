@@ -116,4 +116,15 @@ max-width: 100px;
 .modal-header {
 
 border-color: white;
+
+}
+
+.backToStart {
+
+    text-decoration: none;
+}
+
+.backToStart:hover {
+
+    text-decoration: underline;
 }

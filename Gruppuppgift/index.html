@@ -11,9 +11,10 @@
 
     <body>
 
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-              
+        <header class="container">
+            <nav class="row navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-between">
+              <div class="col-4">
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,9 +31,9 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#productcontainer" id="navbarDropdownMenuLink"
-                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Produkter
-                      </a>
+                      role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Produkter
+                    </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Tavlor</a>
                         <a class="dropdown-item" href="#">Affischer</a>
@@ -40,12 +41,13 @@
                       </div>
                     </li>
                   </ul>
-                      
+                  
                 </div>
-                <div class="text-center justify-content-center">
+              </div>
+                <div class="text-center col-4">
                   <a class="navbar-brand text-center" href="index.html">*SIDANS LOGGA HÄR*</a>
                 </div>
-                <div class="shoppingbag">
+                <div class="shoppingbag col-4 d-flex justify-content-end">
                   <i class="fas fa-shopping-bag icon-2x" href="#exampleModal" data-toggle="modal" aria-hidden="true">
                     <span id="badge" class="badge badge-secondary"></span></i>
                 </div>

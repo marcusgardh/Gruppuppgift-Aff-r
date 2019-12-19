@@ -80,6 +80,38 @@ function createProducts() {
     product8.price = 179;
     product8.description = "Vacker poster med ett fotografiskt motiv av en rosa vägg med ett vackert hålmönster i marockansk stil. Det ihåliga mönstret skapar en vacker och hänförande dynamik.";
     products.push(product8);
+
+    let product9 = new Product();
+    product9.id = 9;
+    product9.title = "Golden Palm";
+    product9.image = "images/product_9.jpg";
+    product9.price = 199;
+    product9.description = "Foto av palmblad mot en vägg i dova toner av guld, grått och grönt.";
+    products.push(product9);
+
+    let product10 = new Product();
+    product10.id = 10;
+    product10.title = "Hiding in White";
+    product10.image = "images/product_10.jpg";
+    product10.price = 179;
+    product10.description = "Svartvitt fotografi av en person dold bakom böljande vitt tyg."
+    products.push(product10);
+
+    let product11 = new Product();
+    product11.id = 11;
+    product11.title = "Brooklyn Building";
+    product11.image = "images/product_11.jpg";
+    product11.price = 179;
+    product11.description = "I Brooklyn, stadsdelen med störst befolkning i New York, hittar du New York-byggnader i en mer antik stil. Vårt kreativa team fotade denna fasad tillsammans med en trappuppgång som visar ett New York bortom studiolägenheter och moderna skyskrapor. Postern har en vit kant runt om som ramar in motivet fint.";
+    products.push(product11);
+
+    let product12 = new Product();
+    product12.id = 12;
+    product12.title = "Purpose";
+    product12.image = "images/product_12.jpg";
+    product12.price = 199;
+    product12.description = "Peytil - Purpose poster. Konstnärlig poster med motiv av en människa i flera färger uppdelade i lager. Denna poster blir definitvt en speciell dekorationdetalj i hemmet som inte kommer gå obemärkt förbi! Passar perfekt att sätta upp i ett vardagsrum eller sovrum och passar lika bra på en vägg enskild som tillsammans med fler posters. En populär kombination är att matcha våra posters med konstmotiv tillsammans med en av våra texttavlor. Motiv skapat av Peytil, ett Stockholmsbaserat konstprojekt med Eitil Thorén Due som grundare.";
+    products.push(product12);
 }
 
 function displayProducts() {
@@ -92,7 +124,7 @@ function displayProducts() {
         let product = $("<div>").addClass("col-6 col-md-3 productdiv text-center");
         container.append(product);
 
-        let imageDiv = $("<div>");
+        let imageDiv = $("<div>").addClass("mb-2");
         let image = $("<img>").addClass("img-fluid productimage").attr("src", products[i].image).click(function() {
             window.location.href = "html/product.html?id=" + products[i].id;
         });
@@ -100,7 +132,7 @@ function displayProducts() {
         product.append(imageDiv);
         imageDiv.append(image);
 
-        let title = $("<h6>").html(products[i].title);
+        let title = $("<h5>").html(products[i].title);
         product.append(title);
 
         let price = $("<p>").html(products[i].price + " kr");
@@ -122,20 +154,32 @@ function displayCart() {
 
     for (let i = 0; i < cart.length; i++) {
         let image = $("<img>").addClass("img-fluid w-25").attr("src", products[cart[i].id - 1].image);
-        let title = $("<p>").html(cart[i].title);
+        let title = $("<h6>").addClass("mb-4").html(cart[i].title);
         let minus = $("<i>").addClass("fas fa-minus").click(function() {
             removeFromCart(cart[i].id);
         });
-        let quantity = $("<span>").html(cart[i].quantity);
+        let quantity = $("<span>").addClass("mx-2").html(cart[i].quantity);
         let plus = $("<i>").addClass("fas fa-plus").click(function() {
             addToCart(cart[i].id);
         });
-        let quantityContainer = $("<div>").append(minus).append(quantity).append(plus);
+        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
+        let deleteIt = $("<i>").addClass("fas fa-times").click(function() {
+            deleteItem(cart[i].id);
+        });
         
-        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append(title).append(quantityContainer).append(price)));
-
+        $("#cart").append($("<div>").addClass("d-flex mb-1").append(image).append($("<div>").addClass("ml-3").append($("<div>").append(deleteIt).append(title).append(quantityContainer).append(price))));
+       
         $("#badge").html(cartQuantity);
+    }
+
+    if (cartQuantity === 0) {
+
+        $("#badge").hide()
+    }
+
+    else {
+        $("#badge").show();
     }
 
     if (cart.length) {
@@ -185,6 +229,20 @@ function removeFromCart(x) {
     displayCart();
 }
 
+function deleteItem(x) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === x ) {
+        cart.splice(i,1);
+    }
+}
+
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+
 function calculateTotalPrice() {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]");
     let totalPrice = 0;
@@ -195,7 +253,7 @@ function calculateTotalPrice() {
   
     if (totalPrice > 0) {
       
-      $("#cart").append($("<span>").html("<b>Totalt: </b>" + totalPrice + " kr"));
+        $("#cart").append($("<div>").addClass("row justify-content-end d-flex totPriceCart pt-2 mt-3").append($("<span>").addClass("pr-3").html("<b>Totalt: </b> " + totalPrice + " kr")));
     }
   
     else {

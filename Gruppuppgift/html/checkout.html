@@ -8,30 +8,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Montserrat:300|Playfair+Display&display=swap" rel="stylesheet">
+
 
   </head>
 
   <body>    
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Hem <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">HEM</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Om oss</a>
+              <a class="nav-link" href="#">OM OSS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">FAQ</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Produkter
+                PRODUKTER
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Tavlor</a>
@@ -41,9 +43,9 @@
             </li>
           </ul>
         </div>
-        <a class="navbar-brand text-align-center" href="../index.html">*SIDANS LOGGA HÄR*</a>
+        <a class="navbar-brand text-align-center" id="logo" href="../index.html">OINESED</a>
         <div class="shoppingbag">
-            <i class="fas fa-shopping-bag icon-2x" href= "#exampleModal" data-toggle="modal" aria-hidden="true">
+            <i class="fas fa-shopping-bag" id="shoppingbag" href= "#exampleModal" data-toggle="modal" aria-hidden="true">
                     
             </i>
         </div>
@@ -57,18 +59,19 @@
             <h4 class= "pb-3">Din Varukorg</h4>
           </div>
         </div>
-        <div id ="checkOutBag" class="row pt-3 px-1">
-        </div>
-        <div class="row justify-content-end theprice">
+        <div class="justify-content-center text-center row">
+          <div id ="checkOutBag" class="row pt-3 px-1 col-md-10">
+          </div>
+          <div class="row justify-content-end theprice col-md-10">
           <span id="totalprice" class= "py-2"></span>
-        </div>
-          <div class="row justify-content-end theprice">
+          </div>
+          <div class="row justify-content-end theprice col-md-10">
             <span id="shippingprice" class= "py-2"></span>
           </div>
-          <div class="row justify-content-end theprice">
+          <div class="row justify-content-end theprice col-md-10">
             <span id="allprice" class= "py-2"></span>
           </div>
-
+        </div>
 
         <!--Form for checkout-->
 

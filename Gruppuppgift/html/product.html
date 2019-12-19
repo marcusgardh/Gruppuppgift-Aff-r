@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Montserrat:300|Playfair+Display&display=swap" rel="stylesheet">
+
         
   </head>
   <body>    
     <header>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navigation">
               
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Hem <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">HEM </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Om oss</a>
+              <a class="nav-link" href="#">OM OSS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">FAQ</a>
@@ -32,7 +34,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#productcontainer" id="navbarDropdownMenuLink"
                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Produkter
+                PRODUKTER
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Tavlor</a>
@@ -44,19 +46,20 @@
               
         </div>
         <div class="text-center justify-content-center">
-          <a class="navbar-brand text-align-center" href="../index.html">*SIDANS LOGGA HÄR*</a>
+          <a class="navbar-brand text-align-center" id="logo" href="../index.html">OINESED</a>
         </div>
         <div class="shoppingbag h-100">
-          <i class="fas fa-shopping-bag icon-2x" href="#exampleModal" data-toggle="modal" aria-hidden="true">
-            <span id="badge" class="badge badge-secondary"></span></i>
+          <i class="fas fa-shopping-bag my-auto" id="shoppingbag" href="#exampleModal" data-toggle="modal" aria-hidden="true">
+            <span id="badge" class="badge-pill badge-secondary"></span></i>
         </div>
       </nav>
     </header>
    
    
       
-    <div class = "container mt-5 pt-2">
+    <div class = "container mt-5 pt-3">
       <div class="row justify-content-center">
+
         <div class="col-sm-12 col-lg-4 pt-3">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval ="false">
             <ol class="carousel-indicators">
@@ -83,17 +86,19 @@
         </div>
 
         <div class="col-sm-12 col-lg-6 pt-3">
-          <div class = "pb-2 px-3 text-center">
+          <div class = "pb-4 text-center">
             <h3 id="producttitle"></h3>
           </div>
           <div class = px-3>
             <span id ="productdescription"></span>
+            <p id ="productsize" class= "mt-4"></p>
           </div>    
           <div class = "text-center">
             <h4 id = "productprice" class="mt-4 pb-2"></h4>
           </div>
-          <button id="buybutton" type="button" class="btn btn-dark btn-block" href="#exampleModal" data-toggle="modal">Köp</button>
+          <button id="buybutton" type="button" class="btn btn-dark btn-block" href="#exampleModal" data-toggle="modal">Lägg i varukorg</button>
         </div>
+
       </div>
     </div>
               
@@ -107,7 +112,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div id="cart" class="modal-body">
+          <div id="cart" class="modal-body pb-2">
               
           </div>
           <div class="modal-footer">

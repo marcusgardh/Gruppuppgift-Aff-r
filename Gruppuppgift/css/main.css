@@ -1,3 +1,25 @@
+body {
+
+    font-family: 'Montserrat', sans-serif
+}
+
+h6 , h3 , h5 {
+
+    font-family: 'Playfair Display', serif;
+    color: #414141;
+}
+
+h3 {
+
+    font-size: 2rem;
+}
+
+#logo {
+
+    font-family: 'Cantarell', sans-serif;
+    font-size: 1.5em;
+    color: #414141;
+}
 .productimage:hover {
     cursor: pointer;
 
@@ -18,21 +40,29 @@
     
     width: 145px;
 }
+
 .displayimage{
     max-width:100%;
     width: 500px;
     height: auto;
-    
 }
+
 footer {
 
- border-top: solid 1px gray;
+ border-top: solid 1px rgb(209, 209, 209);
 }
 
 
 #shoppingbag {
     cursor: pointer;
+    font-size: 1.5rem;
     
+}
+
+#badge {
+
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif
 }
 
 .theprice {
@@ -43,7 +73,18 @@ footer {
 
 #checkOutBag {
 
-
 border: solid 1px rgb(209, 209, 209);
 
+}
+
+.totPriceCart {
+
+    border-top: solid 1px rgb(209, 209, 209);
+
+}
+
+.delIcon {
+
+    margin-left:auto; 
+    margin-right:0;
 }

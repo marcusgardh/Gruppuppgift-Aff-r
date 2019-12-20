@@ -141,6 +141,7 @@ function addToCart(x) {
 
   displayCheckOut();
 }
+
 // Räkna ut totalpris på beställningen inkl frakt, skriv ut pris, frakt och pris+frakt
 function calculateTotalPrice(shipping) {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");

@@ -163,10 +163,10 @@ function displayCart() {
             addToCart(cart[i].id);
         });
        
-        let deleteIt = $("<i>").addClass("fas fa-times quant pb-4").click(function() {
+        let deleteIt = $("<i>").addClass("fas fa-times quant pb-5 ml-3 pl-4").click(function() {
             deleteItem(cart[i].id);
         });
-        let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus).append(deleteIt);
+        let quantityContainer = $("<div>").addClass("mb-5").append(minus).append(quantity).append(plus).append(deleteIt);
         let price = $("<p>").html(cart[i].price * cart[i].quantity + " kr");
         
         $("#cart").append(($("<div>").addClass("d-flex pl-3 pt-1 pb-1 w-100 img-fluid border-top").append(img).append($("<div>").addClass("w-100 d-flex justify-content-between ml-3 pt-2").append(title).append($("<div>").addClass("justify-content-end mr-4").append(deleteIt).append(quantityContainer).append(price)))));

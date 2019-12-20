@@ -256,7 +256,7 @@ function displayCart() {
         let plus = $("<i>").addClass("fas fa-plus quant").click(function() {
             addToCart(cart[i].id - 1);
         });
-        let deleteIt = $("<i>").addClass("fas fa-times quant pb-4").click(function() {
+        let deleteIt = $("<i>").addClass("fas fa-times quant pb-4 ml-3 pl-4").click(function() {
             deleteItem(cart[i].id);
         });
         let quantityContainer = $("<div>").addClass("mb-4").append(minus).append(quantity).append(plus).append(deleteIt);

@@ -65,7 +65,7 @@ function displayCheckOut(){
     let plus = $("<i>").addClass("fas fa-plus mt-2 quant").click(function() {
       addToCart(cart[i].id);
     });
-    let deleteIt = $("<i>").addClass("fas fa-times d-flex quant pt-2 pb-3").click(function() {
+    let deleteIt = $("<i>").addClass("fas fa-times d-flex quant pt-2 pb-3 ml-3 pl-4").click(function() {
             deleteItem(cart[i].id);
     });
 
